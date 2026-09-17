@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>Rushikesh Patil | Data Analyst & BI Specialist</title>
+  <meta name="title" content="Rushikesh Patil | Data Analyst & BI Specialist">
+  <meta name="description" content="Portfolio of Rushikesh Patil - Junior Data Analyst specializing in SQL (PostgreSQL, MySQL), Power BI, Advanced Excel (MIS reporting), and Python (Pandas).">
+  <meta name="keywords" content="Data Analyst, Business Analyst, Power BI, SQL, Python, Excel MIS, Pune, India, Entry-Level Analyst">
+  <meta name="author" content="Rushikesh Patil">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       NAVIGATION BAR
+       ======================================================================== -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-dot"></span>
+        <span>Rushikesh<span class="gradient-text">.data</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#playground" class="nav-link">Live Playground</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+          <span id="theme-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </span>
+        </button>
+
+        <a href="Rushikesh_Patil_Resume.html" class="btn btn-primary btn-sm" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Resume (PDF)
+        </a>
+
+        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Open Menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========================================================================
+       HERO SECTION
+       ======================================================================== -->
+  <section id="hero" class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="status-pill">
+          <span class="status-indicator"></span>
+          <span>Open to Junior Data Analyst & Intern Roles</span>
+        </div>
+
+        <h1 class="hero-title">
+          Hi, I'm <span class="gradient-text">Rushikesh Patil</span>
+        </h1>
+        <p class="hero-subtitle">Data Analyst & Business Intelligence Specialist</p>
+        
+        <p class="hero-desc" id="about">
+          Final-year engineering student focused on turning messy transactional and operational datasets into clear, decision-ready insights. Experienced in relational querying (SQL), dashboard architecture (Power BI), automated Excel reporting, and exploratory Python analysis.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#playground" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            Interactive SQL Console
+          </a>
+          <a href="#projects" class="btn btn-secondary">
+            View Projects
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            Get in Touch
+          </a>
+        </div>
+
+        <div class="hero-stats-row">
+          <div class="stat-item">
+            <h3>45,000+</h3>
+            <p>Records Cleaned & Queried</p>
+          </div>
+          <div class="stat-item">
+            <h3>3+</h3>
+            <p>Production Dashboards</p>
+          </div>
+          <div class="stat-item">
+            <h3>12 Hubs</h3>
+            <p>Reconciled in Internship</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual: Clean SQL Snippet -->
+      <div class="hero-visual">
+        <div class="code-window">
+          <div class="code-header">
+            <div class="window-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <span class="window-title">customer_lifetime_value.sql</span>
+            <button class="btn btn-sm btn-secondary" data-copy="WITH ranked_orders AS (SELECT customer_id, SUM(order_value) as clv FROM orders GROUP BY customer_id) SELECT * FROM ranked_orders;">Copy</button>
+          </div>
+          <pre class="code-body"><code><span class="code-comment">-- PostgreSQL: Customer RFM & Spend Tiering</span>
+<span class="code-keyword">WITH</span> customer_orders <span class="code-keyword">AS</span> (
+    <span class="code-keyword">SELECT</span> 
+        c.customer_id, c.customer_name,
+        <span class="code-func">COUNT</span>(o.order_id) <span class="code-keyword">AS</span> total_orders,
+        <span class="code-func">SUM</span>(oi.quantity * oi.unit_price) <span class="code-keyword">AS</span> lifetime_spend,
+        <span class="code-func">DENSE_RANK</span>() <span class="code-keyword">OVER</span> (
+            <span class="code-keyword">ORDER BY</span> <span class="code-func">SUM</span>(oi.quantity * oi.unit_price) <span class="code-keyword">DESC</span>
+        ) <span class="code-keyword">AS</span> spend_rank
+    <span class="code-keyword">FROM</span> customers c
+    <span class="code-keyword">INNER JOIN</span> orders o <span class="code-keyword">ON</span> c.customer_id = o.customer_id
+    <span class="code-keyword">INNER JOIN</span> order_items oi <span class="code-keyword">ON</span> o.order_id = oi.order_id
+    <span class="code-keyword">WHERE</span> o.order_status = <span class="code-str">'Completed'</span>
+    <span class="code-keyword">GROUP BY</span> c.customer_id, c.customer_name
+)
+<span class="code-keyword">SELECT</span> * <span class="code-keyword">FROM</span> customer_orders <span class="code-keyword">WHERE</span> spend_rank &lt;= 5;</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       LIVE ANALYTICS PLAYGROUND (INTERACTIVE DEMO)
+       ======================================================================== -->
+  <section id="playground" class="playground-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Interactive Proof of Competency</div>
+        <h2 class="section-title">Live Analytics Playground</h2>
+        <p class="section-desc">
+          Click any scenario below to inspect how my SQL queries, DAX formulas, and Python scripts transform raw inputs into business outcomes.
+        </p>
+      </div>
+
+      <div class="playground-card">
+        <!-- Control Tabs -->
+        <div class="playground-controls">
+          <button class="query-btn active" data-scenario="clv">
+            1. Customer Lifetime Value (PostgreSQL)
+          </button>
+          <button class="query-btn" data-scenario="mom">
+            2. MoM Revenue Growth (Power BI DAX)
+          </button>
+          <button class="query-btn" data-scenario="churn">
+            3. Churn Segmentation (Python Pandas)
+          </button>
+        </div>
+
+        <!-- Playground Output Grid -->
+        <div class="playground-display">
+          <!-- Left: Code & Logic Explanation -->
+          <div class="query-explanation">
+            <h4 id="playground-title">Top Customers by Lifetime Value (CLV)</h4>
+            <div id="playground-desc" class="explanation-text">
+              Ranks customers by cumulative spend across completed transactions. Uses ROW_NUMBER() to identify each buyer's most recent purchase date.
+            </div>
+            <pre class="sql-preview-box" id="playground-code"></pre>
+          </div>
+
+          <!-- Right: Interactive Result Preview -->
+          <div class="result-table-box">
+            <div class="result-table-header">
+              <span style="font-weight:600; font-size: 0.9rem;">Live Simulated Output</span>
+              <span class="result-badge" id="playground-badge">PostgreSQL CTE</span>
+            </div>
+            <table class="data-table">
+              <thead id="playground-thead"></thead>
+              <tbody id="playground-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       TECHNICAL SKILLS SECTION
+       ======================================================================== -->
+  <section id="skills" class="skills-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Technical Competencies</div>
+        <h2 class="section-title">Core Analytics Toolkit</h2>
+        <p class="section-desc">Practical technologies used in projects and verified through hands-on data manipulation.</p>
+      </div>
+
+      <div class="skills-grid">
+        <!-- Category 1 -->
+        <div class="skill-category-card">
+          <div class="category-icon">⚡</div>
+          <h3>Languages & Querying</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">SQL (PostgreSQL)</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">CTEs & Subqueries</span>
+            <span class="skill-tag">Window Functions</span>
+            <span class="skill-tag">Complex Joins</span>
+          </div>
+        </div>
+
+        <!-- Category 2 -->
+        <div class="skill-category-card">
+          <div class="category-icon">📊</div>
+          <h3>Data Modeling & Excel</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Advanced Excel</span>
+            <span class="skill-tag">XLOOKUP / INDEX-MATCH</span>
+            <span class="skill-tag">Pivot Tables</span>
+            <span class="skill-tag">SUMIFS / Dynamic Ranges</span>
+            <span class="skill-tag">Pandas</span>
+            <span class="skill-tag">NumPy</span>
+          </div>
+        </div>
+
+        <!-- Category 3 -->
+        <div class="skill-category-card">
+          <div class="category-icon">📈</div>
+          <h3>BI & Visualizations</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Power BI</span>
+            <span class="skill-tag">DAX Measures</span>
+            <span class="skill-tag">Star Schema Modeling</span>
+            <span class="skill-tag">Power Query</span>
+            <span class="skill-tag">Tableau Basics</span>
+            <span class="skill-tag">Matplotlib / Seaborn</span>
+          </div>
+        </div>
+
+        <!-- Category 4 -->
+        <div class="skill-category-card">
+          <div class="category-icon">🛠️</div>
+          <h3>Databases & Workflow</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">MySQL Workbench</span>
+            <span class="skill-tag">Git & GitHub</span>
+            <span class="skill-tag">Jupyter Notebooks</span>
+            <span class="skill-tag">VS Code</span>
+            <span class="skill-tag">Data Validation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       PROJECTS SECTION
+       ======================================================================== -->
+  <section id="projects" class="projects-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Portfolio Work</div>
+        <h2 class="section-title">Featured Analytics Projects</h2>
+        <p class="section-desc">Real datasets, structured analysis workflows, and defensible business takeaways.</p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div>
+            <div class="project-tag-bar">
+              <span class="project-category">E-Commerce & Retail</span>
+              <span class="tech-badge">45K+ Records</span>
+            </div>
+            <h3 class="project-title">Retail Sales & Customer Performance Dashboard</h3>
+            <p class="project-description">
+              Integrated transactional data across 4 relational tables (Customers, Orders, Items, Products) to evaluate sales trends, product return rates, and customer recency.
+            </p>
+            <ul class="project-highlights">
+              <li>Wrote PostgreSQL queries with CTEs and window functions (<code>ROW_NUMBER</code>, <code>DENSE_RANK</code>) to identify top-spending cohorts.</li>
+              <li>Engineered a Star Schema in Power BI with <code>Fact_Sales</code> linked to 4 dimension tables, eliminating data redundancy.</li>
+              <li>Authored dynamic DAX measures for Month-over-Month (MoM) revenue growth and Average Order Value (AOV).</li>
+            </ul>
+          </div>
+          <div>
+            <div class="project-tech-stack">
+              <span class="tech-badge">PostgreSQL</span>
+              <span class="tech-badge">Power BI</span>
+              <span class="tech-badge">DAX</span>
+              <span class="tech-badge">Power Query</span>
+              <span class="tech-badge">Excel</span>
+            </div>
+            <div class="project-footer">
+              <a href="Interview_Defense_and_SQL_Samples.html" class="btn btn-secondary btn-sm" target="_blank">View Queries</a>
+              <a href="https://github.com/rushikeshpatil-data" class="btn btn-secondary btn-sm" target="_blank">GitHub Repo</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div>
+            <div class="project-tag-bar">
+              <span class="project-category">Customer Analytics</span>
+              <span class="tech-badge">7,000+ Records</span>
+            </div>
+            <h3 class="project-title">Customer Churn Exploratory Analysis</h3>
+            <p class="project-description">
+              Conducted exploratory data analysis (EDA) on telecom subscriber records to uncover operational reasons driving customer attrition and identify at-risk account tiers.
+            </p>
+            <ul class="project-highlights">
+              <li>Cleaned missing total charge values in zero-tenure accounts and normalized categorical inconsistencies using Pandas.</li>
+              <li>Discovered that month-to-month subscribers churned at 42.7% (compared to &lt; 3% for two-year contracts).</li>
+              <li>Generated distribution charts, correlation heatmaps, and tenure survival curves using Matplotlib and Seaborn.</li>
+            </ul>
+          </div>
+          <div>
+            <div class="project-tech-stack">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">Pandas</span>
+              <span class="tech-badge">NumPy</span>
+              <span class="tech-badge">Matplotlib</span>
+              <span class="tech-badge">Seaborn</span>
+            </div>
+            <div class="project-footer">
+              <a href="Interview_Defense_and_SQL_Samples.html" class="btn btn-secondary btn-sm" target="_blank">View Notebook</a>
+              <a href="https://github.com/rushikeshpatil-data" class="btn btn-secondary btn-sm" target="_blank">GitHub Repo</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div>
+            <div class="project-tag-bar">
+              <span class="project-category">Operations & MIS</span>
+              <span class="tech-badge">350+ SKU Catalog</span>
+            </div>
+            <h3 class="project-title">Automated Inventory & MIS Tracker</h3>
+            <p class="project-description">
+              Replaced error-prone manual paper logs for a retail business by building a dynamic Excel tracker with automatic stockout warnings and supplier lead-time monitors.
+            </p>
+            <ul class="project-highlights">
+              <li>Configured dynamic formulas using <code>XLOOKUP</code>, nested <code>IF</code>, and <code>SUMIFS</code> to recalculate inventory in real time.</li>
+              <li>Built an interactive summary dashboard using Pivot Tables and Slicers to isolate low-stock items requiring replenishment.</li>
+              <li>Enforced data validation dropdowns, preventing spelling mistakes and categorization errors across 350+ products.</li>
+            </ul>
+          </div>
+          <div>
+            <div class="project-tech-stack">
+              <span class="tech-badge">Advanced Excel</span>
+              <span class="tech-badge">Pivot Tables</span>
+              <span class="tech-badge">XLOOKUP</span>
+              <span class="tech-badge">Data Validation</span>
+            </div>
+            <div class="project-footer">
+              <a href="Interview_Defense_and_SQL_Samples.html" class="btn btn-secondary btn-sm" target="_blank">Formulas Used</a>
+              <a href="https://github.com/rushikeshpatil-data" class="btn btn-secondary btn-sm" target="_blank">Download Sheet</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       WORK EXPERIENCE SECTION
+       ======================================================================== -->
+  <section id="experience" class="experience-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Work History</div>
+        <h2 class="section-title">Practical Experience</h2>
+        <p class="section-desc">Hands-on experience supporting operations, data reconciliation, and fleet reporting.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <span class="timeline-role">Data Analyst Intern</span>
+                <span class="timeline-company"> | Apex Logistics Solutions</span>
+              </div>
+              <span class="timeline-meta">June 2024 – August 2024 | Pune, Maharashtra</span>
+            </div>
+            <ul class="timeline-bullets">
+              <li>Extracted and validated dispatch and delivery records from internal MySQL databases to support daily fleet reporting across 12 delivery hubs.</li>
+              <li>Prepared weekly operational MIS reports in Excel tracking on-time delivery percentages, delivery failure reasons, and turnaround times.</li>
+              <li>Reconciled mismatched delivery status logs between driver records and system manifests, identifying and correcting ~300 logging discrepancies weekly.</li>
+              <li>Assisted operations leads by compiling ad-hoc SQL queries to evaluate driver route efficiency and fuel expenditure trends.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       EDUCATION & CREDENTIALS
+       ======================================================================== -->
+  <section id="education" class="skills-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Background & Qualifications</div>
+        <h2 class="section-title">Education & Certifications</h2>
+      </div>
+
+      <div class="credentials-grid">
+        <!-- Education Box -->
+        <div class="credential-box">
+          <h3>🎓 Academic Background</h3>
+          <div style="margin-bottom: 12px;">
+            <h4 style="font-size: 1rem; margin-bottom: 4px;">Bachelor of Engineering (B.E.) in Computer Engineering</h4>
+            <p style="color: var(--accent-primary); font-weight: 600; font-size: 0.88rem;">Savitribai Phule Pune University (SPPU)</p>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 2px;">Graduation: June 2025 | Pune, Maharashtra</p>
+          </div>
+          <p style="font-size: 0.88rem; margin-bottom: 6px;"><strong>CGPA:</strong> 8.2 / 10.0</p>
+          <p style="font-size: 0.84rem; color: var(--text-muted);">
+            <strong>Key Coursework:</strong> Database Management Systems (DBMS), Applied Statistics, Data Structures, Object-Oriented Programming.
+          </p>
+        </div>
+
+        <!-- Certifications Box -->
+        <div class="credential-box">
+          <h3>📜 Certifications & Honors</h3>
+          <div class="cert-item">
+            <div class="cert-info">
+              <h4>Google Data Analytics Professional Certificate</h4>
+              <p>Coursera (8-Course Specialization in SQL, R, Tableau)</p>
+            </div>
+            <span class="cert-year">2024</span>
+          </div>
+
+          <div class="cert-item">
+            <div class="cert-info">
+              <h4>SQL (Advanced) Skill Certificate</h4>
+              <p>HackerRank (Complex Joins, Aggregations, Window Functions)</p>
+            </div>
+            <span class="cert-year">2024</span>
+          </div>
+
+          <div class="cert-item">
+            <div class="cert-info">
+              <h4>Finalist, Inter-College Data Hackathon</h4>
+              <p>SPPU (Analyzed public transit arrival trends in 24 hours)</p>
+            </div>
+            <span class="cert-year">2024</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       CONTACT & OUTREACH
+       ======================================================================== -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="contact-card">
+        <!-- Direct Info -->
+        <div class="contact-info-block">
+          <div class="section-tag">Let's Connect</div>
+          <h3>Ready to Discuss Analytics Opportunities</h3>
+          <p>
+            I am actively interviewing for entry-level Data Analyst, Business Analyst, and MIS roles. If you have an opening or would like to view more code samples, feel free to reach out directly.
+          </p>
+
+          <div class="contact-direct-links">
+            <a href="mailto:rushikesh.patil.work@gmail.com" class="direct-link-row" data-copy="rushikesh.patil.work@gmail.com">
+              <div class="direct-icon">✉️</div>
+              <div>
+                <div style="font-size:0.75rem; color:var(--text-muted);">Email (Click to Copy)</div>
+                <div>rushikesh.patil.work@gmail.com</div>
+              </div>
+            </a>
+
+            <a href="tel:+919876543210" class="direct-link-row" data-copy="+919876543210">
+              <div class="direct-icon">📞</div>
+              <div>
+                <div style="font-size:0.75rem; color:var(--text-muted);">Phone / WhatsApp</div>
+                <div>+91 98765 43210</div>
+              </div>
+            </a>
+
+            <a href="https://linkedin.com/in/rushikesh-patil-analytics" class="direct-link-row" target="_blank">
+              <div class="direct-icon">💼</div>
+              <div>
+                <div style="font-size:0.75rem; color:var(--text-muted);">LinkedIn Profile</div>
+                <div>linkedin.com/in/rushikesh-patil-analytics</div>
+              </div>
+            </a>
+
+            <a href="https://github.com/rushikeshpatil-data" class="direct-link-row" target="_blank">
+              <div class="direct-icon">💻</div>
+              <div>
+                <div style="font-size:0.75rem; color:var(--text-muted);">GitHub Repositories</div>
+                <div>github.com/rushikeshpatil-data</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Form -->
+        <form id="quick-contact-form" class="quick-form">
+          <div class="form-group">
+            <label for="sender-name">Your Name / Organization</label>
+            <input type="text" id="sender-name" class="form-control" placeholder="e.g. Priya Sharma (TechCorp)" required>
+          </div>
+
+          <div class="form-group">
+            <label for="sender-email">Your Work Email</label>
+            <input type="email" id="sender-email" class="form-control" placeholder="priya@company.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="sender-message">Opportunity or Question</label>
+            <textarea id="sender-message" class="form-control" placeholder="We have an opening for a Data Analyst Intern in Pune/Remote..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="justify-content: center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            Send Inquiry to Rushikesh
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer>
+    <div class="container footer-content">
+      <div>
+        <strong>Rushikesh Patil</strong> &copy; 2025. Built for Data Analytics & Business Intelligence Roles.
+      </div>
+      <div style="display: flex; gap: 16px;">
+        <a href="#hero" class="nav-link">Back to Top ↑</a>
+        <a href="Rushikesh_Patil_Resume.html" class="nav-link" target="_blank">View Resume</a>
+        <a href="Interview_Defense_and_SQL_Samples.html" class="nav-link" target="_blank">Code Guide</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>

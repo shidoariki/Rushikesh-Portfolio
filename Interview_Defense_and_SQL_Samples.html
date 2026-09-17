@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technical Interview Defense & Code Samples | Rushikesh Patil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .docs-container {
+      max-width: 960px;
+      margin: 100px auto 80px auto;
+      padding: 0 24px;
+    }
+    .doc-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin-bottom: 32px;
+      backdrop-filter: blur(12px);
+    }
+    .doc-card h2 {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+      color: var(--accent-primary);
+    }
+    .doc-card h3 {
+      font-size: 1.2rem;
+      margin: 20px 0 10px 0;
+    }
+    .code-block {
+      background: #0b1120;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: #93c5fd;
+      overflow-x: auto;
+      line-height: 1.5;
+      margin: 14px 0;
+    }
+    .qa-box {
+      border-left: 3px solid var(--accent-primary);
+      padding-left: 16px;
+      margin-bottom: 20px;
+    }
+    .qa-q {
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+    .qa-a {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Minimal Nav -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-dot"></span>
+        <span>Rushikesh<span class="gradient-text">.data</span></span>
+      </a>
+      <div class="nav-actions">
+        <a href="index.html" class="btn btn-secondary btn-sm">← Back to Portfolio</a>
+        <a href="Rushikesh_Patil_Resume.html" class="btn btn-primary btn-sm" target="_blank">View Resume</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="docs-container">
+    <div style="margin-bottom: 32px; text-align: center;">
+      <div class="section-tag">Technical Reference</div>
+      <h1 style="font-size: 2.4rem; margin-bottom: 8px;">Technical Interview Defense & Code Samples</h1>
+      <p style="color: var(--text-muted);">Exact schemas, PostgreSQL queries, Power BI DAX measures, and Python cleaning pipelines for Rushikesh Patil's projects.</p>
+    </div>
+
+    <!-- Project 1 -->
+    <div class="doc-card">
+      <h2>1. Retail Sales & Customer Performance Dashboard</h2>
+      <p style="color: var(--text-muted); font-size: 0.92rem;">
+        Dataset: 45,000+ e-commerce transaction records across 4 relational tables (Customers, Orders, Order_Items, Products).
+      </p>
+
+      <h3>PostgreSQL Query: Customer Lifetime Value (CLV) & Recency Analysis</h3>
+      <pre class="code-block"><code>WITH customer_orders AS (
+    SELECT 
+        c.customer_id,
+        c.customer_name,
+        c.state,
+        o.order_id,
+        o.order_date,
+        SUM(oi.quantity * oi.unit_price * (1 - oi.discount)) AS order_value,
+        ROW_NUMBER() OVER (
+            PARTITION BY c.customer_id 
+            ORDER BY o.order_date DESC
+        ) AS recency_rank
+    FROM customers c
+    INNER JOIN orders o ON c.customer_id = o.customer_id
+    INNER JOIN order_items oi ON o.order_id = oi.order_id
+    WHERE o.order_status = 'Completed'
+    GROUP BY c.customer_id, c.customer_name, c.state, o.order_id, o.order_date
+),
+customer_summary AS (
+    SELECT 
+        customer_id,
+        customer_name,
+        state,
+        COUNT(order_id) AS total_orders,
+        ROUND(SUM(order_value)::numeric, 2) AS lifetime_spend,
+        ROUND(AVG(order_value)::numeric, 2) AS average_order_value,
+        MAX(CASE WHEN recency_rank = 1 THEN order_date END) AS last_order_date
+    FROM customer_orders
+    GROUP BY customer_id, customer_name, state
+)
+SELECT 
+    customer_id,
+    customer_name,
+    state,
+    total_orders,
+    lifetime_spend,
+    average_order_value,
+    last_order_date,
+    DENSE_RANK() OVER (ORDER BY lifetime_spend DESC) AS spend_rank
+FROM customer_summary
+ORDER BY lifetime_spend DESC
+LIMIT 20;</code></pre>
+
+      <h3>Key Power BI DAX Measures</h3>
+      <pre class="code-block"><code>-- Total Revenue
+Total Revenue = 
+SUMX(Fact_Sales, Fact_Sales[Quantity] * Fact_Sales[UnitPrice] * (1 - Fact_Sales[Discount]))
+
+-- Month-over-Month (MoM) Revenue Growth %
+Revenue Prior Month = 
+CALCULATE([Total Revenue], DATEADD(Dim_Date[Date], -1, MONTH))
+
+MoM Revenue Growth % = 
+DIVIDE([Total Revenue] - [Revenue Prior Month], [Revenue Prior Month], 0)
+
+-- Return Rate %
+Return Rate = 
+DIVIDE(
+    CALCULATE(COUNTROWS(Fact_Sales), Fact_Sales[OrderStatus] = "Returned"),
+    COUNTROWS(Fact_Sales),
+    0
+)</code></pre>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="doc-card">
+      <h2>2. Customer Churn Exploratory Analysis (Python)</h2>
+      <p style="color: var(--text-muted); font-size: 0.92rem;">
+        Dataset: 7,043 subscriber records. Focus on data cleaning and discovering correlation between contract types and attrition.
+      </p>
+
+      <h3>Pandas Data Cleaning & Segmentation Workflow</h3>
+      <pre class="code-block"><code>import pandas as pd
+import numpy as np
+
+# Load dataset
+df = pd.read_csv("telecom_churn.csv")
+
+# 1. Clean column headers
+df.columns = df.columns.str.strip().str.lower().str.replace(' ', '_')
+
+# 2. Convert total_charges to numeric, filling whitespace for tenure == 0 with 0
+df['total_charges'] = pd.to_numeric(df['total_charges'].str.strip(), errors='coerce').fillna(0)
+
+# 3. Standardize boolean/categorical flags
+df['senior_citizen'] = df['senior_citizen'].map({1: 'Yes', 0: 'No'})
+
+# 4. Segment churn by contract type
+contract_churn = df.groupby('contract')['churn'].value_counts(normalize=True).unstack() * 100
+print(contract_churn)
+# Insight: Month-to-month contracts had ~42.7% churn vs. < 3% for two-year contracts.</code></pre>
+    </div>
+
+    <!-- Interview Q&A -->
+    <div class="doc-card">
+      <h2>3. Technical Interview Defense Q&A</h2>
+
+      <div class="qa-box">
+        <div class="qa-q">Q: What is the difference between WHERE and HAVING in SQL?</div>
+        <div class="qa-a">
+          The <code>WHERE</code> clause filters individual rows before grouping. The <code>HAVING</code> clause filters aggregated groups after the <code>GROUP BY</code> evaluation. For example, <code>WHERE order_status = 'Completed'</code> filters rows before calculating sums, while <code>HAVING SUM(order_value) &gt; 50000</code> filters only groups meeting the threshold.
+        </div>
+      </div>
+
+      <div class="qa-box">
+        <div class="qa-q">Q: Why did you use DENSE_RANK() instead of ROW_NUMBER() in your SQL query?</div>
+        <div class="qa-a">
+          <code>ROW_NUMBER()</code> assigns strictly sequential numbers, breaking ties arbitrarily. <code>DENSE_RANK()</code> assigns identical ranks to tied customer spending figures without skipping numbers, ensuring fair customer tier classification.
+        </div>
+      </div>
+
+      <div class="qa-box">
+        <div class="qa-q">Q: How did you design your Power BI data model?</div>
+        <div class="qa-a">
+          I constructed a Star Schema with one central <code>Fact_Sales</code> table connected to 4 dimension tables (<code>Dim_Customer</code>, <code>Dim_Product</code>, <code>Dim_Date</code>, <code>Dim_Region</code>) via 1-to-many relationships. This prevents redundant columns, minimizes memory usage in VertiPaq, and keeps DAX filters fast.
+        </div>
+      </div>
+
+      <div class="qa-box">
+        <div class="qa-q">Q: How do you handle missing values in data cleaning?</div>
+        <div class="qa-a">
+          I first analyze whether missingness is random or systematic. For example, in the churn dataset, empty total charge fields corresponded strictly to newly registered customers with 0 tenure, so imputing zero made factual sense rather than deleting the rows.
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <div>Rushikesh Patil &copy; 2025. Data Analytics Portfolio & Interview Guide.</div>
+      <a href="index.html" class="nav-link">Back to Main Portfolio</a>
+    </div>
+  </footer>
+
+</body>
+</html>

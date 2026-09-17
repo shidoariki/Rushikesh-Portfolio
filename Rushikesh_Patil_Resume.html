@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rushikesh Patil - Data Analyst Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --text-main: #1f2937;
+      --text-muted: #4b5563;
+      --heading-color: #0f172a;
+      --accent-color: #1e3a8a;
+      --border-color: #cbd5e1;
+      --link-color: #1d4ed8;
+      --bg-color: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--text-main);
+      background-color: #f1f5f9;
+      line-height: 1.38;
+      font-size: 9.75pt;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .resume-wrapper {
+      max-width: 210mm;
+      min-height: 297mm;
+      margin: 20px auto;
+      background: var(--bg-color);
+      padding: 16mm 18mm 14mm 18mm;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border-radius: 4px;
+      position: relative;
+    }
+
+    /* Floating Action Bar */
+    .action-bar {
+      position: fixed;
+      top: 16px;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+      z-index: 100;
+    }
+
+    .btn {
+      background: #0f172a;
+      color: #ffffff;
+      border: none;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      transition: all 0.15s ease;
+    }
+
+    .btn:hover {
+      background: #1e293b;
+      transform: translateY(-1px);
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 12px;
+      border-bottom: 1.5px solid var(--heading-color);
+      padding-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 20pt;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--heading-color);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .contact-info {
+      font-size: 9pt;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .contact-links {
+      font-size: 9pt;
+    }
+
+    .contact-links a {
+      color: var(--link-color);
+      text-decoration: none;
+      margin: 0 5px;
+      font-weight: 500;
+    }
+
+    .contact-links a:hover {
+      text-decoration: underline;
+    }
+
+    .separator {
+      color: #94a3b8;
+    }
+
+    /* Section Structure */
+    section {
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: 10.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--heading-color);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 2px;
+      margin-bottom: 6px;
+    }
+
+    /* Summary */
+    .summary-text {
+      font-size: 9.5pt;
+      color: var(--text-main);
+      text-align: justify;
+      line-height: 1.4;
+    }
+
+    /* Skills */
+    .skills-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: 3px;
+    }
+
+    .skill-item {
+      font-size: 9.25pt;
+      line-height: 1.35;
+    }
+
+    .skill-category {
+      font-weight: 600;
+      color: var(--heading-color);
+    }
+
+    /* Entries (Projects, Experience, Education) */
+    .entry {
+      margin-bottom: 8px;
+    }
+
+    .entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1px;
+    }
+
+    .entry-title {
+      font-size: 9.75pt;
+      font-weight: 600;
+      color: var(--heading-color);
+    }
+
+    .entry-subtitle {
+      font-size: 9pt;
+      font-weight: 500;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .entry-meta {
+      font-size: 8.75pt;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-align: right;
+    }
+
+    .project-desc {
+      font-size: 9pt;
+      font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 3px;
+      line-height: 1.3;
+    }
+
+    /* Bullet Points */
+    ul.bullet-list {
+      list-style-type: square;
+      padding-left: 15px;
+      margin-top: 2px;
+    }
+
+    ul.bullet-list li {
+      font-size: 9.25pt;
+      color: var(--text-main);
+      margin-bottom: 2.5px;
+      line-height: 1.35;
+    }
+
+    ul.bullet-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .tech-pill {
+      font-weight: 500;
+      color: var(--accent-color);
+      font-style: normal;
+    }
+
+    /* Achievements & Certifications compact list */
+    .compact-list {
+      list-style-type: square;
+      padding-left: 15px;
+    }
+
+    .compact-list li {
+      font-size: 9.25pt;
+      margin-bottom: 2px;
+      line-height: 1.35;
+    }
+
+    /* Print Styles: strictly fits on 1 page A4 */
+    @media print {
+      @page {
+        size: A4;
+        margin: 10mm 12mm 8mm 12mm;
+      }
+
+      body {
+        background: none;
+        color: #000000;
+        font-size: 9.25pt;
+      }
+
+      .resume-wrapper {
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        max-width: 100%;
+        min-height: auto;
+      }
+
+      .action-bar {
+        display: none !important;
+      }
+
+      a {
+        color: #000000 !important;
+        text-decoration: none !important;
+      }
+
+      .section-title {
+        border-bottom: 1px solid #94a3b8;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="action-bar">
+    <button class="btn" onclick="window.print()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+      Print / Save as PDF
+    </button>
+  </div>
+
+  <main class="resume-wrapper">
+    <!-- Header -->
+    <header>
+      <h1>Rushikesh Patil</h1>
+      <div class="contact-info">
+        Pune, Maharashtra, India <span class="separator">|</span> +91 98765 43210 <span class="separator">|</span> rushikesh.patil.work@gmail.com
+      </div>
+      <div class="contact-links">
+        <a href="https://linkedin.com/in/rushikesh-patil-analytics" target="_blank" rel="noopener">linkedin.com/in/rushikesh-patil-analytics</a>
+        <span class="separator">•</span>
+        <a href="https://github.com/rushikeshpatil-data" target="_blank" rel="noopener">github.com/rushikeshpatil-data</a>
+        <span class="separator">•</span>
+        <a href="https://rushikesh-portfolio.me" target="_blank" rel="noopener">rushikesh-portfolio.me</a>
+      </div>
+    </header>
+
+    <!-- Professional Summary -->
+    <section>
+      <div class="section-title">Professional Summary</div>
+      <p class="summary-text">
+        Final-year engineering student with practical proficiency in SQL, Excel, Python, and Power BI. Focused on data cleaning, descriptive reporting, and building operational dashboards. Experienced in querying relational databases, writing multi-table joins, and translating transactional datasets into structured summaries for business decision-making.
+      </p>
+    </section>
+
+    <!-- Technical Skills -->
+    <section>
+      <div class="section-title">Technical Skills</div>
+      <div class="skills-list">
+        <div class="skill-item"><span class="skill-category">Languages & Querying:</span> SQL (PostgreSQL, MySQL), Python</div>
+        <div class="skill-item"><span class="skill-category">Analysis & Modeling:</span> Advanced Excel (Pivot Tables, XLOOKUP, INDEX/MATCH, SUMIFS), Pandas, NumPy</div>
+        <div class="skill-item"><span class="skill-category">Business Intelligence:</span> Power BI (DAX, Power Query, Star Schema Modeling), Tableau Basics</div>
+        <div class="skill-item"><span class="skill-category">Databases & Tools:</span> PostgreSQL, MySQL Workbench, Git, GitHub, Jupyter Notebook, VS Code</div>
+        <div class="skill-item"><span class="skill-category">Core Analytics:</span> Exploratory Data Analysis (EDA), Data Cleaning, KPI Tracking, Cohort Analysis</div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section>
+      <div class="section-title">Projects</div>
+
+      <!-- Project 1 -->
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Retail Sales & Customer Performance Dashboard</span>
+          <span class="entry-subtitle tech-pill">SQL, Power BI, Excel</span>
+        </div>
+        <div class="project-desc">Analyzed 45,000+ e-commerce transaction records across 4 relational tables to evaluate revenue trends, regional performance, and return rates.</div>
+        <ul class="bullet-list">
+          <li>Wrote PostgreSQL queries using CTEs, window functions (<code>ROW_NUMBER</code>, <code>DENSE_RANK</code>), and inner/left joins to aggregate order quantities and calculate customer lifetime value.</li>
+          <li>Cleaned and normalized messy source records in Power Query, resolving null customer IDs, inconsistent date formats, and duplicate SKU entries.</li>
+          <li>Designed an interactive 3-page Power BI dashboard featuring KPI cards (Total Revenue, AOV, Return Rate) and dynamic drill-downs across product categories.</li>
+          <li>Created custom DAX measures using <code>CALCULATE</code>, <code>DIVIDE</code>, and <code>DATESYTD</code> to track MoM revenue performance.</li>
+        </ul>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Customer Churn Exploratory Analysis</span>
+          <span class="entry-subtitle tech-pill">Python, Pandas, Matplotlib, Seaborn</span>
+        </div>
+        <div class="project-desc">Conducted exploratory data analysis on a telecom dataset with 7,000+ customer records to identify operational drivers of subscriber attrition.</div>
+        <ul class="bullet-list">
+          <li>Handled missing data in contract duration fields, standardized categorical values, and inspected distributions using Pandas.</li>
+          <li>Computed bivariate correlations and segmented churn rates by contract type, payment method, and monthly charges.</li>
+          <li>Visualized tenure survival patterns and fee distributions using Matplotlib and Seaborn, summarizing takeaways into an actionable report.</li>
+          <li>Published clean, commented Jupyter notebooks and dataset documentation to GitHub for reproducibility.</li>
+        </ul>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Automated Inventory & MIS Tracker</span>
+          <span class="entry-subtitle tech-pill">Advanced Excel</span>
+        </div>
+        <div class="project-desc">Built a dynamic inventory tracking workbook for a local retail store to replace manual paper logs and monitor stockouts.</div>
+        <ul class="bullet-list">
+          <li>Structured an automated tracking template using <code>XLOOKUP</code>, dynamic ranges, nested <code>IF</code>/<code>SUMIFS</code>, and conditional formatting.</li>
+          <li>Created automated weekly summary sheets using Pivot Tables and Slicers to track low-stock items, safety stock thresholds, and supplier lead times.</li>
+          <li>Implemented strict data validation dropdowns to eliminate manual entry typos across 350+ unique inventory items.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section>
+      <div class="section-title">Experience</div>
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">Data Analyst Intern</span>
+            <span class="entry-subtitle"> | Apex Logistics Solutions</span>
+          </div>
+          <span class="entry-meta">June 2024 – August 2024 | Pune, Maharashtra</span>
+        </div>
+        <ul class="bullet-list">
+          <li>Extracted and validated dispatch and delivery records from internal MySQL databases to support daily fleet reporting across 12 delivery hubs.</li>
+          <li>Prepared weekly operational MIS reports in Excel tracking on-time delivery percentages, delivery failure reasons, and turnaround times.</li>
+          <li>Reconciled mismatched delivery status logs between driver records and system manifests, identifying and correcting ~300 logging discrepancies weekly.</li>
+          <li>Assisted operations leads by compiling ad-hoc SQL queries to evaluate driver route efficiency and fuel expenditure trends.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section>
+      <div class="section-title">Education</div>
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">Bachelor of Engineering (B.E.) in Computer Engineering</span>
+            <span class="entry-subtitle"> | Savitribai Phule Pune University (SPPU)</span>
+          </div>
+          <span class="entry-meta">Expected Graduation: June 2025 | Pune, Maharashtra</span>
+        </div>
+        <ul class="bullet-list">
+          <li><strong>Relevant Coursework:</strong> Database Management Systems (DBMS), Applied Statistics, Data Structures, Object-Oriented Programming</li>
+          <li><strong>Cumulative CGPA:</strong> 8.2 / 10.0</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section>
+      <div class="section-title">Certifications</div>
+      <ul class="compact-list">
+        <li><strong>Google Data Analytics Professional Certificate</strong> — Coursera | 2024</li>
+        <li><strong>SQL (Advanced) Skill Certificate</strong> — HackerRank | 2024</li>
+      </ul>
+    </section>
+
+    <!-- Achievements -->
+    <section>
+      <div class="section-title">Academic & Extracurricular Achievements</div>
+      <ul class="compact-list">
+        <li><strong>Finalist, Inter-College Data Hackathon (SPPU):</strong> Analyzed public transit arrival datasets under a 24-hour deadline.</li>
+        <li><strong>Technical Coordinator, College Tech Fest:</strong> Managed registration databases and attendance tracking for 600+ participants using Google Sheets.</li>
+      </ul>
+    </section>
+  </main>
+
+</body>
+</html>
