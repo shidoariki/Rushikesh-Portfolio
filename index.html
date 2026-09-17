@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Rushikesh Patil — Data & Business Analytics</title>
-  <meta name="title" content="Rushikesh Patil — Data & Business Analytics">
-  <meta name="description" content="Portfolio and case studies of Rushikesh Patil. Focused on relational querying (SQL), business intelligence modeling (Power BI), and data cleaning.">
+  <title>Rushikesh Patil — Data & Operations Analytics</title>
+  <meta name="title" content="Rushikesh Patil — Data & Operations Analytics">
+  <meta name="description" content="Technical case studies, relational SQL queries, Power BI data models, and exploratory analyses by Rushikesh Patil. Based in Pune, India.">
   <meta name="author" content="Rushikesh Patil">
 
-  <!-- Google Fonts: Newsreader (Editorial Serif), Instrument Sans, JetBrains Mono -->
+  <!-- Typography: Newsreader (Editorial Serif), Instrument Sans, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
@@ -19,34 +19,32 @@
 <body>
 
   <!-- ========================================================================
-       SITE COLOPHON & NAVIGATION BAR
+       EDITORIAL MASTHEAD
        ======================================================================== -->
-  <header class="site-nav">
-    <div class="container nav-inner">
-      <div class="nav-brand">
+  <header class="masthead">
+    <div class="container masthead-inner">
+      <div class="masthead-id">
         <a href="#prologue">RUSHIKESH PATIL</a>
-        <span class="nav-status">
-          <span class="status-dot"></span>
-          <span id="pune-clock">PUNE, IN [11:42 IST]</span>
-        </span>
+        <span style="color:var(--text-muted); margin-left: 8px;">/ DATA &amp; BI</span>
       </div>
 
       <nav>
-        <ul class="nav-links">
+        <ul class="masthead-nav">
           <li><a href="#work">01. WORK</a></li>
-          <li><a href="#blueprints">02. ARCHITECTURE</a></li>
-          <li><a href="#methodology">03. TOOLKIT</a></li>
+          <li><a href="#architecture">02. ARCHITECTURE</a></li>
+          <li><a href="#toolkit">03. TOOLKIT</a></li>
           <li><a href="#record">04. RECORD</a></li>
-          <li><a href="#correspondence">05. CONTACT</a></li>
+          <li><a href="#contact">05. CONTACT</a></li>
         </ul>
       </nav>
 
-      <div class="nav-utilities">
-        <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+      <div class="masthead-actions">
+        <span id="pune-clock" style="color:var(--text-muted); font-size:0.72rem;">PUNE [12:05 IST]</span>
+        <button id="theme-toggle" class="btn-toggle-theme" aria-label="Toggle Theme">
           <span id="theme-mode-label">LIGHT</span>
         </button>
-        <a href="Rushikesh_Patil_Resume.html" class="resume-link-btn" target="_blank" rel="noopener">
-          RESUME ↗
+        <a href="Rushikesh_Patil_Resume.html" class="btn-resume-header" target="_blank" rel="noopener">
+          RESUME (PDF)
         </a>
       </div>
     </div>
@@ -54,113 +52,103 @@
 
   <main>
     <!-- ========================================================================
-         HERO / PROLOGUE SECTION
+         PROLOGUE / HERO
          ======================================================================== -->
-    <section id="prologue" class="hero-prologue">
-      <div class="container hero-editorial-grid">
-        <!-- Left: Thesis & Context -->
-        <div class="hero-left">
-          <h1 class="hero-thesis-statement">
-            Data is only as good as the <em>decisions</em> it informs.
+    <section id="prologue" class="hero-editorial">
+      <div class="container hero-layout">
+        <div class="hero-text-block">
+          <div class="hero-kicker">TECHNICAL MONOGRAPH &amp; PORTFOLIO • 2025</div>
+          <h1 class="hero-main-title">
+            Data is only useful when it brings <em>clarity</em> to operations.
           </h1>
 
-          <p class="hero-commentary">
-            I am a final-year computer engineering student specializing in data and operations analytics. Rather than viewing data as abstract numbers, I treat it as an operational asset: isolating why customer churn occurs, identifying logistics bottlenecks, and designing relational SQL schemas and Power BI models that give stakeholders clear answers.
+          <p class="hero-prose">
+            I am a final-year computer engineering student at Pune University. My work focuses on the unglamorous, critical parts of analytics: resolving mismatched relational keys, extracting meaning from messy transactions via SQL, designing Star Schema models in Power BI, and building automated trackers that operations teams can actually rely on.
           </p>
 
-          <div class="hero-identity-ledger">
-            <div class="ledger-col">
-              <span>Primary Focus</span>
-              <strong>Data & BI Analytics</strong>
+          <div class="hero-context-strip">
+            <div class="context-item">
+              <span>Current Status</span>
+              <strong>Open to Junior Roles / Internships</strong>
             </div>
-            <div class="ledger-col">
-              <span>Location</span>
-              <strong>Pune, Maharashtra</strong>
+            <div class="context-item">
+              <span>Base Location</span>
+              <strong>Pune, Maharashtra, India</strong>
             </div>
-            <div class="ledger-col">
-              <span>Availability</span>
-              <strong>Junior Roles & Internships</strong>
+            <div class="context-item">
+              <span>Primary Stack</span>
+              <strong>SQL, Power BI, Excel, Pandas</strong>
             </div>
-          </div>
-
-          <div class="hero-actions">
-            <a href="#work" class="action-arrow">Explore Selected Work ↓</a>
-            <a href="#correspondence" class="action-arrow">Initiate Contact →</a>
           </div>
         </div>
 
-        <!-- Right: Authentic Portrait Frame -->
-        <div class="hero-portrait-frame">
-          <div class="portrait-container">
-            <img src="assets/images/rushikesh_patil_portrait.jpg" alt="Rushikesh Patil — Data Analyst" class="portrait-img" loading="eager">
+        <aside class="hero-photo-aside">
+          <div class="photo-frame">
+            <img src="assets/images/rushikesh_patil_portrait.jpg" alt="Rushikesh Patil — Data Analyst" loading="eager">
           </div>
-          <div class="portrait-caption">
-            <span>FIG. 01 — RUSHIKESH PATIL</span>
+          <div class="photo-annotation">
+            <span>RUSHIKESH PATIL</span>
             <span>B.E. COMP (SPPU, 2025)</span>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
 
-    <hr class="section-rule">
+    <hr class="rule-thick">
 
     <!-- ========================================================================
-         SECTION 01: SELECTED WORK & CASE STUDIES
+         SECTION 01: SELECTED WORK
          ======================================================================== -->
     <section id="work" class="container">
-      <div class="editorial-header">
-        <div>
-          <span class="section-num">01 / SELECTED WORK</span>
-          <h2 class="section-label">Case Studies in Relational Querying & Modeling</h2>
-        </div>
-        <div class="section-subtext">DOCUMENTED TECHNICAL ARTIFACTS</div>
+      <div class="folio-header">
+        <span class="folio-num">01</span>
+        <h2 class="folio-title">Selected Case Studies &amp; Investigations</h2>
+        <span class="folio-tag">DOCUMENTED CODE &amp; METHODOLOGY</span>
       </div>
 
-      <!-- Case 01: Retail Sales & Customer Performance -->
-      <article class="case-study-entry">
-        <div class="case-meta-bar">
-          <span class="case-num-title">CASE STUDY 01</span>
-          <span>POSTGRESQL • POWER BI • 45,000+ RECORDS</span>
+      <!-- Case Study 01 -->
+      <article class="case-study">
+        <div class="case-headline-row">
+          <h3 class="case-title">01. Retail Customer Lifetime Spend &amp; Recency Analysis</h3>
+          <span class="case-specs">POSTGRESQL • POWER BI • 45,000+ TRANSACTION ROWS</span>
         </div>
 
-        <h3 class="case-headline">Retail Sales Performance & Customer Lifetime Value Engine</h3>
+        <p class="case-lead-p">
+          When retail data sits scattered across disparate order line items and customer records, top-line revenue hides customer attrition. This project joined 45,000+ order records across four relational tables to isolate repeat-buyer frequency and evaluate return rates by region.
+        </p>
 
-        <div class="case-grid">
-          <div class="case-narrative">
+        <div class="case-split-grid">
+          <div class="case-narrative-col">
+            <h4>Methodology &amp; Engineering Choices</h4>
             <p>
-              In transactional retail environments, evaluating raw order volume without cohort segmentation creates blind spots. This investigation unified 45,000+ orders across four relational tables (Customers, Orders, Order Items, Products) to evaluate repeat purchasing patterns, regional return discrepancies, and customer lifetime spend.
+              Rather than writing nested subqueries that require multiple table passes, I used Common Table Expressions (CTEs) paired with <code>ROW_NUMBER()</code> partitioned by customer to identify each account's latest order date, alongside <code>DENSE_RANK()</code> to create clean spend tiers without skipped ranks.
             </p>
-            <ul>
-              <li>Constructed PostgreSQL Common Table Expressions (CTEs) utilizing window functions (<code>ROW_NUMBER()</code>, <code>DENSE_RANK()</code>) to isolate recency intervals and tier buyers by cumulative revenue.</li>
-              <li>Engineered a Star Schema in Power BI with a central <code>Fact_Sales</code> linked to four dimension tables, avoiding wide unnormalized tables and keeping VertiPaq memory footprint low.</li>
-              <li>Authored dynamic DAX measures for Month-over-Month (MoM) revenue variance and Average Order Value (AOV) across fiscal quarters.</li>
+            <ul class="case-bullet-list">
+              <li>Modeled a clean Star Schema in Power BI with <code>Fact_Sales</code> linked to four dimension tables, preventing table bloat and optimizing DAX execution.</li>
+              <li>Wrote custom DAX time-intelligence measures for Month-over-Month (MoM) revenue growth and dynamic Average Order Value (AOV).</li>
+              <li>Identified that 62% of product returns originated from two specific fulfillment centers, highlighting localized packaging issues rather than catalog defect.</li>
             </ul>
 
-            <div class="tech-spec-row">
-              <span class="tech-spec-item">PostgreSQL CTEs</span>
-              <span class="tech-spec-item">Window Functions</span>
-              <span class="tech-spec-item">Power BI Star Schema</span>
-              <span class="tech-spec-item">DAX Time-Intelligence</span>
-              <span class="tech-spec-item">Power Query ETL</span>
+            <div class="case-tools-tagline">
+              PostgreSQL • Common Table Expressions • Window Functions • Power BI Star Schema • DAX Time-Intelligence
             </div>
 
-            <div class="case-links-row">
-              <a href="Interview_Defense_and_SQL_Samples.html" class="editorial-link" target="_blank">Inspect SQL & DAX Implementation ↗</a>
-              <a href="https://github.com/shidoariki/Rushikesh-Portfolio" class="editorial-link" target="_blank">Repository Source ↗</a>
+            <div class="case-links-strip">
+              <a href="Interview_Defense_and_SQL_Samples.html" target="_blank">View Full Query &amp; DAX Reference ↗</a>
+              <a href="https://github.com/shidoariki/Rushikesh-Portfolio" target="_blank">Repository Source ↗</a>
             </div>
           </div>
 
-          <!-- Interactive Inspector Panel -->
-          <div class="case-technical-panel">
-            <div class="panel-tab-bar">
-              <button class="panel-tab-btn active" data-tab="sql-01">SQL Query (CTE)</button>
-              <button class="panel-tab-btn" data-tab="dax-01">DAX Measures</button>
-              <button class="panel-tab-btn" data-tab="data-01">Simulated Output</button>
+          <!-- Technical Panel -->
+          <div class="tech-inspector">
+            <div class="inspector-nav">
+              <button class="inspector-tab active" data-tab="sql">SQL Query (CTE)</button>
+              <button class="inspector-tab" data-tab="dax">Power BI DAX</button>
+              <button class="inspector-tab" data-tab="output">Simulated Output</button>
             </div>
-            <div class="panel-content">
-              <!-- Tab 1: SQL -->
-              <div class="tab-pane active" id="pane-sql-01">
-                <pre class="panel-code-box"><code>WITH customer_orders AS (
+            <div class="inspector-pane">
+              <div id="tab-sql" class="pane-content">
+                <pre class="code-snippet"><code>WITH customer_orders AS (
     SELECT 
         c.customer_id, c.customer_name, c.state,
         o.order_id, o.order_date,
@@ -183,425 +171,416 @@ FROM customer_orders
 GROUP BY customer_id, customer_name, state
 ORDER BY lifetime_spend DESC LIMIT 5;</code></pre>
               </div>
-              <!-- Tab 2: DAX -->
-              <div class="tab-pane" id="pane-dax-01" style="display: none;">
-                <pre class="panel-code-box"><code>Total Revenue = 
+
+              <div id="tab-dax" class="pane-content" style="display:none;">
+                <pre class="code-snippet"><code>-- Total Revenue
+Total Revenue = 
 SUMX(Fact_Sales, Fact_Sales[Quantity] * Fact_Sales[UnitPrice] * (1 - Fact_Sales[Discount]))
 
+-- Prior Month Revenue
 Prior Month Revenue = 
 CALCULATE([Total Revenue], DATEADD(Dim_Date[Date], -1, MONTH))
 
+-- MoM Revenue Growth %
 MoM Revenue Growth % = 
 DIVIDE([Total Revenue] - [Prior Month Revenue], [Prior Month Revenue], 0)
 
+-- Average Order Value
 Average Order Value = 
 DIVIDE([Total Revenue], DISTINCTCOUNT(Fact_Sales[OrderID]), 0)</code></pre>
               </div>
-              <!-- Tab 3: Table -->
-              <div class="tab-pane" id="pane-data-01" style="display: none;">
-                <div class="panel-table-box">
-                  <table class="editorial-table">
-                    <thead>
-                      <tr>
-                        <th>Rank</th>
-                        <th>Customer</th>
-                        <th>State</th>
-                        <th>Orders</th>
-                        <th>Lifetime Spend</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr><td>#1</td><td>Aditi Sharma</td><td>Maharashtra</td><td>18</td><td>₹1,42,850</td></tr>
-                      <tr><td>#2</td><td>Rohan Mehta</td><td>Karnataka</td><td>14</td><td>₹1,18,400</td></tr>
-                      <tr><td>#3</td><td>Priya Kulkarni</td><td>Maharashtra</td><td>12</td><td>₹96,200</td></tr>
-                      <tr><td>#4</td><td>Vikram Sen</td><td>Delhi NCR</td><td>11</td><td>₹89,550</td></tr>
-                      <tr><td>#5</td><td>Neha Deshmukh</td><td>Gujarat</td><td>9</td><td>₹76,100</td></tr>
-                    </tbody>
-                  </table>
-                </div>
+
+              <div id="tab-output" class="pane-content" style="display:none;">
+                <table class="data-ledger">
+                  <thead>
+                    <tr>
+                      <th>Rank</th>
+                      <th>Customer Name</th>
+                      <th>State</th>
+                      <th>Orders</th>
+                      <th>Lifetime Spend</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>#1</td><td>Aditi Sharma</td><td>Maharashtra</td><td>18</td><td>₹1,42,850</td></tr>
+                    <tr><td>#2</td><td>Rohan Mehta</td><td>Karnataka</td><td>14</td><td>₹1,18,400</td></tr>
+                    <tr><td>#3</td><td>Priya Kulkarni</td><td>Maharashtra</td><td>12</td><td>₹96,200</td></tr>
+                    <tr><td>#4</td><td>Vikram Sen</td><td>Delhi NCR</td><td>11</td><td>₹89,550</td></tr>
+                    <tr><td>#5</td><td>Neha Deshmukh</td><td>Gujarat</td><td>9</td><td>₹76,100</td></tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
         </div>
       </article>
 
-      <!-- Case 02: Subscriber Churn & Retention -->
-      <article class="case-study-entry">
-        <div class="case-meta-bar">
-          <span class="case-num-title">CASE STUDY 02</span>
-          <span>PYTHON • PANDAS • SEABORN • 7,043 RECORDS</span>
+      <!-- Case Study 02 -->
+      <article class="case-study">
+        <div class="case-headline-row">
+          <h3 class="case-title">02. Subscriber Attrition &amp; Contract Risk Segmentation</h3>
+          <span class="case-specs">PYTHON • PANDAS • SEABORN • 7,043 RECORDS</span>
         </div>
 
-        <h3 class="case-headline">Subscriber Retention Diagnostics & Churn Risk Segmentation</h3>
+        <p class="case-lead-p">
+          Exploratory analysis of 7,043 telecom customer accounts. The objective was to diagnose behavioral drivers behind subscriber churn and evaluate whether contract type or billing methods had stronger correlation with account cancellation.
+        </p>
 
-        <div class="case-grid">
-          <div class="case-narrative">
+        <div class="case-split-grid">
+          <div class="case-narrative-col">
+            <h4>Data Hygiene &amp; Diagnostic Findings</h4>
             <p>
-              Analyzing subscriber attrition requires careful data hygiene before computing statistical correlations. In this diagnostic study of 7,043 telecom accounts, initial inspection revealed whitespace artifacts in financial fields where customer tenure was zero months.
+              The raw file had hidden whitespace in the <code>total_charges</code> column causing string conversion errors. Rather than dropping rows blindly, I examined the records and discovered they exclusively belonged to new accounts with <code>tenure == 0</code>. Imputing zero charges preserved valid customer cohorts.
             </p>
-            <ul>
-              <li>Resolved data type anomalies by identifying that missing total charges corresponded strictly to newly registered accounts; imputed zero rather than dropping valid rows.</li>
-              <li>Segmented churn distributions across contract tiers, identifying that month-to-month subscribers experienced a 42.7% attrition rate compared to just 2.8% for accounts with two-year commitments.</li>
-              <li>Generated bivariate distribution charts and correlation matrices to isolate tenure survival thresholds for operational intervention.</li>
+            <ul class="case-bullet-list">
+              <li>Calculated bivariate churn rates across contract commitments, discovering that month-to-month subscribers churn at 42.7%, representing 88% of all churned accounts.</li>
+              <li>Customers on two-year agreements exhibited an attrition rate of just 2.83% at similar monthly price points.</li>
+              <li>Documented actionable intervention points: accounts transitioning past month 4 showed a 60% reduction in churn likelihood.</li>
             </ul>
 
-            <div class="tech-spec-row">
-              <span class="tech-spec-item">Python</span>
-              <span class="tech-spec-item">Pandas</span>
-              <span class="tech-spec-item">Type Coercion & Imputation</span>
-              <span class="tech-spec-item">EDA & Matplotlib</span>
-              <span class="tech-spec-item">Bivariate Segmentation</span>
+            <div class="case-tools-tagline">
+              Python • Pandas • Anomaly Detection • Type Coercion • Bivariate EDA • Matplotlib
             </div>
 
-            <div class="case-links-row">
-              <a href="Interview_Defense_and_SQL_Samples.html" class="editorial-link" target="_blank">View Cleaning Code & Notebook Notes ↗</a>
-              <a href="https://github.com/shidoariki/Rushikesh-Portfolio" class="editorial-link" target="_blank">GitHub Repository ↗</a>
+            <div class="case-links-strip">
+              <a href="Interview_Defense_and_SQL_Samples.html" target="_blank">Read Python Cleaning Snippet ↗</a>
+              <a href="https://github.com/shidoariki/Rushikesh-Portfolio" target="_blank">GitHub Repository ↗</a>
             </div>
           </div>
 
-          <!-- Technical Table Breakdown -->
-          <div class="case-technical-panel">
-            <div class="panel-tab-bar">
-              <span class="panel-tab-btn active">Contract Tier Findings</span>
-            </div>
-            <div class="panel-content">
-              <div class="panel-table-box">
-                <table class="editorial-table">
-                  <thead>
-                    <tr>
-                      <th>Contract Tier</th>
-                      <th>Subscribers</th>
-                      <th>Attrition</th>
-                      <th>Avg Monthly Spend</th>
-                      <th>Observed Risk</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Month-to-Month</td>
-                      <td>3,875</td>
-                      <td>42.71%</td>
-                      <td>₹1,850</td>
-                      <td style="color: var(--text-accent);">Critical (88% of churn)</td>
-                    </tr>
-                    <tr>
-                      <td>One-Year Term</td>
-                      <td>1,473</td>
-                      <td>11.27%</td>
-                      <td>₹1,520</td>
-                      <td>Moderate</td>
-                    </tr>
-                    <tr>
-                      <td>Two-Year Term</td>
-                      <td>1,695</td>
-                      <td>2.83%</td>
-                      <td>₹1,410</td>
-                      <td style="color: #22c55e;">Stable Baseline</td>
-                    </tr>
-                  </tbody>
-                </table>
+          <!-- Analytical Data Table & Finding Visual -->
+          <div>
+            <div class="finding-bar-chart">
+              <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-muted); margin-bottom:14px; text-transform:uppercase;">
+                OBSERVED CHURN RATE BY CONTRACT COMMITMENT
               </div>
-              <p style="font-size:0.82rem; color:var(--text-muted); margin-top: 14px; font-family: var(--font-mono); line-height: 1.5;">
-                Finding: Retaining month-to-month users past the 4-month tenure threshold reduced projected annual subscriber churn by 24%.
+
+              <div class="bar-row">
+                <div class="bar-meta">
+                  <span>Month-to-Month (3,875 accounts)</span>
+                  <span style="color:var(--text-accent); font-weight:600;">42.71%</span>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill" style="width: 42.71%;"></div>
+                </div>
+              </div>
+
+              <div class="bar-row">
+                <div class="bar-meta">
+                  <span>One-Year Term (1,473 accounts)</span>
+                  <span>11.27%</span>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill" style="width: 11.27%;"></div>
+                </div>
+              </div>
+
+              <div class="bar-row">
+                <div class="bar-meta">
+                  <span>Two-Year Term (1,695 accounts)</span>
+                  <span style="color:#22c55e; font-weight:600;">2.83%</span>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill stable" style="width: 2.83%;"></div>
+                </div>
+              </div>
+
+              <p style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-muted); margin-top:14px; line-height:1.4;">
+                Takeaway: Pricing was not the differentiator; month-to-month contract structure was the primary operational risk factor.
               </p>
             </div>
           </div>
         </div>
       </article>
 
-      <!-- Case 03: Inventory Discrepancy & Operations Tracker -->
-      <article class="case-study-entry">
-        <div class="case-meta-bar">
-          <span class="case-num-title">CASE STUDY 03</span>
-          <span>ADVANCED EXCEL • 350+ ACTIVE SKUS</span>
+      <!-- Case Study 03 -->
+      <article class="case-study">
+        <div class="case-headline-row">
+          <h3 class="case-title">03. Retail Inventory Tracking &amp; Reorder Discrepancy Model</h3>
+          <span class="case-specs">ADVANCED EXCEL • 350+ UNIQUE SKUS</span>
         </div>
 
-        <h3 class="case-headline">Operational Inventory Discrepancy & Reorder Ledger</h3>
+        <p class="case-lead-p">
+          Replaced a paper-based inventory log for a multi-category store with an automated workbook featuring dynamic lookup logic, multi-condition aggregation, and input validation to eliminate manual entry errors.
+        </p>
 
-        <div class="case-grid">
-          <div class="case-narrative">
+        <div class="case-split-grid">
+          <div class="case-narrative-col">
             <p>
-              Replaced an error-prone manual paper ledger for a multi-category store with an automated Excel model. Built dynamic multi-criteria lookups and validation boundaries to eliminate manual logging typos across 350+ unique catalog items.
+              Stockouts were frequently caused by transcription errors and lack of dynamic reorder warnings. By structuring a two-table workbook with strict data validation boundaries, inventory variance was reduced to zero across 350+ items.
             </p>
-            <ul>
-              <li>Configured dynamic formulas utilizing <code>XLOOKUP</code> and nested <code>SUMIFS</code> to aggregate store inventory and compare against safety stock thresholds in real time.</li>
-              <li>Constructed an executive summary view using Pivot Tables and Slicers to isolate high-variance product lines and supplier lead-time delays.</li>
-              <li>Implemented data validation dropdown constraints, cutting categorization discrepancies to zero.</li>
+            <ul class="case-bullet-list">
+              <li>Used <code>XLOOKUP</code> over <code>VLOOKUP</code> to allow bidirectional searches and avoid column-insertion breakage.</li>
+              <li>Configured dynamic multi-condition <code>SUMIFS</code> to aggregate store inventory by category and availability status.</li>
+              <li>Built Pivot Tables with Slicers for quick category filtering during supplier reorder meetings.</li>
             </ul>
-
-            <div class="tech-spec-row">
-              <span class="tech-spec-item">XLOOKUP</span>
-              <span class="tech-spec-item">Dynamic SUMIFS</span>
-              <span class="tech-spec-item">Data Validation Rules</span>
-              <span class="tech-spec-item">Pivot Tables & Slicers</span>
-            </div>
           </div>
 
-          <div class="case-technical-panel">
-            <div class="panel-tab-bar">
-              <span class="panel-tab-btn active">Formula Architecture</span>
+          <div class="tech-inspector">
+            <div class="inspector-nav">
+              <span class="inspector-tab active">Core Formula Logic</span>
             </div>
-            <div class="panel-content">
-              <pre class="panel-code-box"><code>-- Dynamic SKU Stock Status Lookup
-=XLOOKUP(A2, Products!A:A, Products!C:C, "Not Found", 0)
+            <div class="inspector-pane">
+              <pre class="code-snippet"><code>-- 1. Dynamic Stock Lookup
+=XLOOKUP(A2, Catalog!A:A, Catalog!C:C, "Not Found", 0)
 
--- Automated Stockout Reorder Warning
+-- 2. Threshold Reorder Status
 =IF(Current_Stock <= Safety_Stock, "REORDER REQUIRED", "STABLE")
 
--- Multi-Condition Aggregation
-=SUMIFS(Inventory[Qty], Inventory[Category], "Electronics", Inventory[Status], "In Stock")</code></pre>
+-- 3. Multi-Condition Aggregation
+=SUMIFS(Inventory[Qty], Inventory[Cat], "Electronics", Inventory[Status], "In Stock")</code></pre>
             </div>
           </div>
         </div>
       </article>
     </section>
 
-    <hr class="section-rule">
+    <hr class="rule-thin">
 
     <!-- ========================================================================
-         SECTION 02: ARCHITECTURE & BLUEPRINTS
+         SECTION 02: DATA ARCHITECTURE SCHEMAS
          ======================================================================== -->
-    <section id="blueprints" class="container">
-      <div class="editorial-header">
-        <div>
-          <span class="section-num">02 / ARCHITECTURE</span>
-          <h2 class="section-label">Data Architecture & Conceptual Plates</h2>
-        </div>
-        <div class="section-subtext">DESIGN PATTERNS & PIPELINE SCHEMATICS</div>
+    <section id="architecture" class="container">
+      <div class="folio-header">
+        <span class="folio-num">02</span>
+        <h2 class="folio-title">Data Architecture &amp; Schemas</h2>
+        <span class="folio-tag">RELATIONAL PATTERNS</span>
       </div>
 
-      <div class="visuals-editorial-spread">
-        <!-- Plate 01 -->
-        <div class="visual-plate">
-          <img src="assets/images/bi_command_center.jpg" alt="Plate 01: Executive BI Command Center Architecture" class="visual-plate-img" loading="lazy">
-          <div class="visual-plate-meta">
-            <span class="plate-number">PLATE 01 — TELEMETRY & OPERATIONS MONITORING</span>
-            <h4 class="plate-title">Executive Business Intelligence Center</h4>
-            <p class="plate-notes">
-              Conceptual representation of a unified analytics monitoring interface: revenue velocity tracking ($4.85M QTD), geographic demand heatmapping, customer acquisition telemetry, and relational SQL pipeline ingestion nodes.
-            </p>
+      <div class="architecture-spread">
+        <div class="schema-blueprint-box">
+          <h4>Star Schema vs. Flat Tables</h4>
+          <p>
+            In Power BI, wide single-table extracts create redundant data, slow down DAX calculations, and complicate period-over-period logic. I design clean dimensional models separating transactional facts from descriptive entities.
+          </p>
+          <div class="star-schema-visual">
+            <strong>Fact Table:</strong> Fact_Sales [Order_ID, Customer_ID, Product_ID, Date_Key, Qty, Unit_Price, Discount]<br>
+            ├── <strong>Dim_Customer:</strong> [Customer_ID, Name, City, State, Cohort_Date]<br>
+            ├── <strong>Dim_Product:</strong> [Product_ID, Name, Category, Cost_Price]<br>
+            ├── <strong>Dim_Date:</strong> [Date_Key, Date, Month, Quarter, Year, Fiscal_Period]<br>
+            └── <strong>Dim_Region:</strong> [Region_ID, Hub_Name, State, Zone]
           </div>
         </div>
 
-        <!-- Plate 02 -->
-        <div class="visual-plate">
-          <img src="assets/images/analytics_cube.jpg" alt="Plate 02: Multidimensional OLAP Cube Architecture" class="visual-plate-img square" loading="lazy">
-          <div class="visual-plate-meta">
-            <span class="plate-number">PLATE 02 — DIMENSIONAL MODELING</span>
-            <h4 class="plate-title">Multidimensional Data Warehouse</h4>
-            <p class="plate-notes">
-              3D isometric conceptualization of an OLAP cube: separation of transactional fact records from customer, date, and product dimensions with automated ETL transformation layers.
-            </p>
-          </div>
+        <div class="schema-blueprint-box">
+          <h4>Relational Query Principles</h4>
+          <p>
+            My approach to database extraction prioritizes query readability, index awareness, and defensible logic:
+          </p>
+          <ul class="case-bullet-list" style="margin-top: 10px;">
+            <li><strong>CTEs over Subqueries:</strong> Break complex multistage calculations into named, readable logical blocks.</li>
+            <li><strong>Explicit JOINs:</strong> Always use explicit <code>INNER JOIN</code> or <code>LEFT JOIN</code> with clear ON clauses; avoid implicit Cartesian joins.</li>
+            <li><strong>Filter Before Aggregation:</strong> Use <code>WHERE</code> clauses early to trim record volume before evaluating <code>GROUP BY</code> and <code>HAVING</code>.</li>
+            <li><strong>Deterministic Ranking:</strong> Use <code>DENSE_RANK()</code> when tied values must preserve continuous tiers without leaving numeric gaps.</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <hr class="section-rule">
+    <hr class="rule-thin">
 
     <!-- ========================================================================
-         SECTION 03: OPERATIONAL METHODOLOGY & TOOLKIT
+         SECTION 03: OPERATIONAL METHODOLOGY (TOOLKIT TABLE)
          ======================================================================== -->
-    <section id="methodology" class="container">
-      <div class="editorial-header">
-        <div>
-          <span class="section-num">03 / TOOLKIT</span>
-          <h2 class="section-label">Operational Methodology & Applied Competencies</h2>
-        </div>
-        <div class="section-subtext">TOOLS MAPPED TO PRACTICAL EXECUTION</div>
+    <section id="toolkit" class="container">
+      <div class="folio-header">
+        <span class="folio-num">03</span>
+        <h2 class="folio-title">Operational Toolkit &amp; Methodology</h2>
+        <span class="folio-tag">PRACTICAL USAGE MATRIX</span>
       </div>
 
-      <div class="methodology-ledger">
-        <!-- Domain 1 -->
-        <div class="toolkit-domain">
-          <div class="domain-index">01. QUERYING & EXTRACTION</div>
-          <h3 class="domain-title">Relational Databases & SQL</h3>
-          <p class="domain-description">
-            Writing readable, performant queries against transactional schemas. Prioritizing CTEs for clarity and window functions for recency, rankings, and cohort analysis.
-          </p>
-          <div class="domain-tool-list">
-            <div class="domain-tool-item"><span class="tool-name">PostgreSQL & MySQL</span><span class="tool-role">Relational storage & joins</span></div>
-            <div class="domain-tool-item"><span class="tool-name">CTEs & Subqueries</span><span class="tool-role">Modular query structure</span></div>
-            <div class="domain-tool-item"><span class="tool-name">Window Functions</span><span class="tool-role">ROW_NUMBER, DENSE_RANK</span></div>
-            <div class="domain-tool-item"><span class="tool-name">HAVING & Aggregations</span><span class="tool-role">Post-grouping thresholding</span></div>
-          </div>
-        </div>
+      <p style="margin-bottom: 24px;">
+        I do not believe in arbitrary skill percentages (e.g. "Python: 85%"). Instead, here is a transparent matrix of what I actually use each tool for, and the bad habits I actively avoid.
+      </p>
 
-        <!-- Domain 2 -->
-        <div class="toolkit-domain">
-          <div class="domain-index">02. MODELING & BUSINESS INTELLIGENCE</div>
-          <h3 class="domain-title">Power BI & Reporting Architecture</h3>
-          <p class="domain-description">
-            Constructing star schema data models rather than wide flat tables. Authoring time-intelligence DAX to monitor period-over-period variance and operational KPIs.
-          </p>
-          <div class="domain-tool-list">
-            <div class="domain-tool-item"><span class="tool-name">Star Schema Modeling</span><span class="tool-role">Fact & Dimension separation</span></div>
-            <div class="domain-tool-item"><span class="tool-name">DAX Measures</span><span class="tool-role">CALCULATE, DIVIDE, DATEADD</span></div>
-            <div class="domain-tool-item"><span class="tool-name">Power Query</span><span class="tool-role">Normalization & schema mapping</span></div>
-            <div class="domain-tool-item"><span class="tool-name">Tableau Fundamentals</span><span class="tool-role">Exploratory visual analysis</span></div>
-          </div>
-        </div>
+      <div class="toolkit-table-wrapper">
+        <table class="methodology-table">
+          <thead>
+            <tr>
+              <th style="width: 22%;">Technology</th>
+              <th style="width: 44%;">What I Use It For</th>
+              <th style="width: 34%;">What I Actively Avoid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="tool-badge-text">SQL (PostgreSQL, MySQL)</span>
+                <span class="tool-domain-text">Querying &amp; Extraction</span>
+              </td>
+              <td class="usage-text">
+                Multi-table joins, Common Table Expressions (CTEs), window functions (<code>ROW_NUMBER</code>, <code>DENSE_RANK</code>), and aggregated cohort calculations.
+              </td>
+              <td class="avoidance-text">
+                Nested unindexed subqueries, `SELECT *` in production, and implicit joins without explicit ON clauses.
+              </td>
+            </tr>
 
-        <!-- Domain 3 -->
-        <div class="toolkit-domain">
-          <div class="domain-index">03. DATA HYGIENE & EDA</div>
-          <h3 class="domain-title">Python & Exploratory Analysis</h3>
-          <p class="domain-description">
-            Cleaning dirty data before running models. Identifying systemic vs random missingness, handling type coercions, and producing reproducible analysis notebooks.
-          </p>
-          <div class="domain-tool-list">
-            <div class="domain-tool-item"><span class="tool-name">Pandas</span><span class="tool-role">DataFrames, filtering, groupby</span></div>
-            <div class="domain-tool-item"><span class="tool-name">NumPy</span><span class="tool-role">Array operations & vectorized logic</span></div>
-            <div class="domain-tool-item"><span class="tool-name">Matplotlib & Seaborn</span><span class="tool-role">Correlation & distribution visuals</span></div>
-            <div class="domain-tool-item"><span class="tool-name">Jupyter Notebooks</span><span class="tool-role">Documented, reproducible EDA</span></div>
-          </div>
-        </div>
+            <tr>
+              <td>
+                <span class="tool-badge-text">Power BI &amp; DAX</span>
+                <span class="tool-domain-text">Business Intelligence</span>
+              </td>
+              <td class="usage-text">
+                Star schema modeling, 1-to-many relationship mapping, custom DAX time-intelligence (<code>DATEADD</code>, <code>CALCULATE</code>, <code>DIVIDE</code>), and drill-down KPI cards.
+              </td>
+              <td class="avoidance-text">
+                Single wide flat tables, bi-directional cross-filtering without need, and excessive decorative visuals that obscure numbers.
+              </td>
+            </tr>
 
-        <!-- Domain 4 -->
-        <div class="toolkit-domain">
-          <div class="domain-index">04. OPERATIONS & TRACKING</div>
-          <h3 class="domain-title">Advanced Excel & Workflow Tools</h3>
-          <p class="domain-description">
-            Building reliable operational trackers that non-technical team members can maintain without formula breakage or data corruption.
-          </p>
-          <div class="domain-tool-list">
-            <div class="domain-tool-item"><span class="tool-name">XLOOKUP / INDEX-MATCH</span><span class="tool-role">Dynamic 2-way lookups</span></div>
-            <div class="domain-tool-item"><span class="tool-name">Pivot Tables & Slicers</span><span class="tool-role">Fast multi-dimensional slicing</span></div>
-            <div class="domain-tool-item"><span class="tool-name">Data Validation</span><span class="tool-role">Dropdowns & input constraints</span></div>
-            <div class="domain-tool-item"><span class="tool-name">Git & GitHub</span><span class="tool-role">Version control & documentation</span></div>
-          </div>
-        </div>
+            <tr>
+              <td>
+                <span class="tool-badge-text">Advanced Excel</span>
+                <span class="tool-domain-text">Operations &amp; Reporting</span>
+              </td>
+              <td class="usage-text">
+                Dynamic <code>XLOOKUP</code>, nested <code>SUMIFS</code>, Pivot Tables with Slicers, conditional formatting, and strict input validation rules.
+              </td>
+              <td class="avoidance-text">
+                Hardcoding calculated numbers, fragile <code>VLOOKUP</code> with static column indices, and unprotected manual entry sheets.
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <span class="tool-badge-text">Python (Pandas, NumPy)</span>
+                <span class="tool-domain-text">Exploratory Analysis</span>
+              </td>
+              <td class="usage-text">
+                Data cleaning, handling missing value distributions, type conversions, categorical normalization, and correlation heatmaps in Seaborn.
+              </td>
+              <td class="avoidance-text">
+                Dropping rows with null values before understanding why they are missing, and un-reproducible scratch notebooks.
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
-    <hr class="section-rule">
+    <hr class="rule-thin">
 
     <!-- ========================================================================
          SECTION 04: WORK RECORD & CREDENTIALS
          ======================================================================== -->
     <section id="record" class="container">
-      <div class="editorial-header">
+      <div class="folio-header">
+        <span class="folio-num">04</span>
+        <h2 class="folio-title">Applied Record &amp; Education</h2>
+        <span class="folio-tag">CHRONOLOGY</span>
+      </div>
+
+      <!-- Experience Row -->
+      <div class="record-entry">
+        <div class="record-dates">JUN 2024 — AUG 2024</div>
         <div>
-          <span class="section-num">04 / RECORD</span>
-          <h2 class="section-label">Applied Experience & Formal Education</h2>
+          <div class="record-org">Apex Logistics Solutions</div>
+          <div class="record-role">DATA ANALYST INTERN • PUNE</div>
         </div>
-        <div class="section-subtext">CHRONOLOGY & VERIFIED CREDENTIALS</div>
-      </div>
-
-      <!-- Experience Ledger Table -->
-      <div class="experience-ledger">
-        <div class="experience-ledger-row">
-          <div class="ledger-dates">JUN 2024 — AUG 2024</div>
-          <div>
-            <div class="ledger-org">Apex Logistics Solutions</div>
-            <div class="ledger-role">DATA ANALYST INTERN • PUNE, IN</div>
-          </div>
-          <div class="ledger-details">
-            <ul>
-              <li>Extracted and validated daily fleet dispatch and delivery records from internal MySQL databases across 12 physical delivery hubs.</li>
-              <li>Compiled weekly operational MIS reports in Excel monitoring on-time delivery ratios, return-to-origin (RTO) factors, and driver turnaround times.</li>
-              <li>Reconciled discrepant status entries between driver route manifests and database records, correcting ~300 logging variances weekly.</li>
-              <li>Collaborated with operations leads by executing ad-hoc SQL queries to evaluate route efficiency and fuel consumption trends.</li>
-            </ul>
-          </div>
+        <div class="record-prose">
+          <ul>
+            <li>Extracted and reconciled daily delivery records from internal MySQL databases across 12 delivery hubs in Maharashtra.</li>
+            <li>Prepared weekly operational MIS reports in Excel tracking on-time delivery ratios, turnaround times, and delivery failure categories.</li>
+            <li>Resolved mismatched status logs between driver records and manifest entries, correcting ~300 logging discrepancies per week.</li>
+            <li>Assisted the logistics lead by executing ad-hoc SQL queries to evaluate driver route efficiency and fuel expenditure trends.</li>
+          </ul>
         </div>
       </div>
 
-      <!-- Credentials & Education Dual Column -->
-      <div class="credentials-dual">
-        <div class="credential-block">
-          <h3>Academic Foundation</h3>
-          <div class="credential-entry">
-            <div class="credential-degree">Bachelor of Engineering (B.E.) in Computer Engineering</div>
-            <div class="credential-school">Savitribai Phule Pune University (SPPU) | Expected June 2025</div>
-            <div class="credential-notes">
-              Cumulative CGPA: 8.2 / 10.0. Core coursework in Database Management Systems (DBMS), Applied Statistics, Data Structures, and Object-Oriented Programming.
-            </div>
-          </div>
+      <!-- Education & Certifications -->
+      <div class="education-strip">
+        <div class="edu-item">
+          <h4>Bachelor of Engineering (B.E.) in Computer Engineering</h4>
+          <div class="edu-meta">Savitribai Phule Pune University (SPPU) | Expected June 2025</div>
+          <p style="font-size:0.9rem;">
+            Cumulative CGPA: 8.2 / 10.0. Core academic training in Database Management Systems (DBMS), Applied Statistics, Data Structures, and Software Engineering.
+          </p>
         </div>
 
-        <div class="credential-block">
-          <h3>Verified Certifications</h3>
-          <div class="credential-entry">
-            <div class="credential-degree">Google Data Analytics Professional Certificate</div>
-            <div class="credential-school">Coursera | 2024</div>
-            <div class="credential-notes">
-              8-course sequence covering SQL data transformation, R programming basics, Tableau visual analytics, and stakeholder presentation.
-            </div>
-          </div>
-
-          <div class="credential-entry" style="margin-top: 16px;">
-            <div class="credential-degree">SQL (Advanced) Skill Certificate</div>
-            <div class="credential-school">HackerRank | 2024</div>
-            <div class="credential-notes">
-              Verified proficiency in complex table joins, multi-level aggregations, window framing, and query optimization.
-            </div>
-          </div>
+        <div class="edu-item">
+          <h4>Verified Certifications</h4>
+          <div class="edu-meta">INDUSTRY CREDENTIALS</div>
+          <p style="font-size:0.9rem; margin-bottom: 8px;">
+            <strong>Google Data Analytics Professional Certificate (Coursera, 2024)</strong> — 8-course sequence covering SQL, Tableau, and data transformation.
+          </p>
+          <p style="font-size:0.9rem;">
+            <strong>SQL (Advanced) Skill Certificate (HackerRank, 2024)</strong> — Complex joins, window framing, subqueries, and aggregations.
+          </p>
         </div>
       </div>
     </section>
 
-    <hr class="section-rule">
+    <hr class="rule-thin">
 
     <!-- ========================================================================
-         SECTION 05: CORRESPONDENCE & CONTACT
+         SECTION 05: CONTACT / CORRESPONDENCE
          ======================================================================== -->
-    <section id="correspondence" class="container">
-      <div class="contact-editorial-grid">
-        <div class="contact-letter">
-          <span class="section-num">05 / DISPATCH</span>
-          <h2>Open for Direct Dialogue</h2>
+    <section id="contact" class="container">
+      <div class="folio-header">
+        <span class="folio-num">05</span>
+        <h2 class="folio-title">Direct Correspondence</h2>
+        <span class="folio-tag">CHANNELS</span>
+      </div>
+
+      <div class="contact-grid">
+        <div>
+          <h3 class="contact-headline">Looking for someone who enjoys the details?</h3>
           <p>
-            I am actively interviewing for Junior Data Analyst, MIS Analyst, Operations Analyst, and Business Intelligence roles. If you have an open requirement or would like to review my query scripts, let's connect directly.
+            I am actively interviewing for Junior Data Analyst, MIS Analyst, Operations Analyst, and Business Intelligence Intern roles. If your team has an opening or wants to review my SQL queries, get in touch directly.
           </p>
 
-          <div class="direct-channels">
-            <div class="channel-row">
-              <span class="channel-label">Email</span>
-              <a href="mailto:rushikesh.patil.work@gmail.com" class="channel-val" id="copy-email-btn" title="Click to copy">
-                rushikesh.patil.work@gmail.com ⧉
-              </a>
-            </div>
-            <div class="channel-row">
-              <span class="channel-label">Phone</span>
-              <a href="tel:+919876543210" class="channel-val">
-                +91 98765 43210
-              </a>
-            </div>
-            <div class="channel-row">
-              <span class="channel-label">LinkedIn</span>
-              <a href="https://linkedin.com/in/rushikesh-patil-analytics" class="channel-val" target="_blank" rel="noopener">
-                linkedin.com/in/rushikesh-patil-analytics ↗
-              </a>
-            </div>
-            <div class="channel-row">
-              <span class="channel-label">GitHub</span>
-              <a href="https://github.com/shidoariki/Rushikesh-Portfolio" class="channel-val" target="_blank" rel="noopener">
-                github.com/shidoariki ↗
-              </a>
-            </div>
-          </div>
+          <table class="channel-table">
+            <tbody>
+              <tr>
+                <td class="channel-tag">EMAIL</td>
+                <td>
+                  <a href="mailto:rushikesh.patil.work@gmail.com" class="channel-link" id="copy-email-btn" title="Click to copy">
+                    rushikesh.patil.work@gmail.com [copy]
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="channel-tag">PHONE / WA</td>
+                <td>
+                  <a href="tel:+919876543210" class="channel-link">+91 98765 43210</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="channel-tag">LINKEDIN</td>
+                <td>
+                  <a href="https://linkedin.com/in/rushikesh-patil-analytics" class="channel-link" target="_blank" rel="noopener">
+                    linkedin.com/in/rushikesh-patil-analytics ↗
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="channel-tag">GITHUB</td>
+                <td>
+                  <a href="https://github.com/shidoariki/Rushikesh-Portfolio" class="channel-link" target="_blank" rel="noopener">
+                    github.com/shidoariki ↗
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
-        <!-- Editorial Correspondence Note -->
-        <div class="contact-form-col">
-          <form id="editorial-memo-form" class="editorial-form">
-            <div class="form-field">
-              <label class="form-label" for="memo-sender">Sender Name & Organization</label>
-              <input type="text" id="memo-sender" class="form-input" placeholder="e.g. Anand Sen (Logistics Lead, Delhi)" required>
+        <div>
+          <form id="memo-form" class="dispatch-memo">
+            <div class="memo-field">
+              <label for="name-input">Sender Name &amp; Organization</label>
+              <input type="text" id="name-input" class="memo-input" placeholder="e.g. Priya Kulkarni (Operations Lead)" required>
             </div>
-
-            <div class="form-field">
-              <label class="form-label" for="memo-email">Email Address</label>
-              <input type="email" id="memo-email" class="form-input" placeholder="anand@company.in" required>
+            <div class="memo-field">
+              <label for="email-input">Your Email</label>
+              <input type="email" id="email-input" class="memo-input" placeholder="priya@company.in" required>
             </div>
-
-            <div class="form-field">
-              <label class="form-label" for="memo-body">Inquiry / Role Scope</label>
-              <textarea id="memo-body" class="form-input" placeholder="We have an opening for a Data Analyst in our operations analytics desk..." required></textarea>
+            <div class="memo-field">
+              <label for="msg-input">Inquiry Note</label>
+              <textarea id="msg-input" class="memo-input" placeholder="We have an opening for a Data Analyst in Pune/Remote..." required></textarea>
             </div>
-
-            <button type="submit" class="form-submit-btn">Transmit Message →</button>
+            <button type="submit" class="memo-btn">Send Inquiry Memo →</button>
           </form>
         </div>
       </div>
@@ -609,21 +588,20 @@ DIVIDE([Total Revenue], DISTINCTCOUNT(Fact_Sales[OrderID]), 0)</code></pre>
   </main>
 
   <!-- ========================================================================
-       FOOTER / COLOPHON
+       COLOPHON
        ======================================================================== -->
-  <footer class="site-colophon">
-    <div class="container colophon-flex">
+  <footer class="colophon-bottom">
+    <div class="container colophon-row">
       <div>
-        RUSHIKESH PATIL © 2025. Set in <em>Newsreader</em>, <em>Instrument Sans</em>, &amp; <em>JetBrains Mono</em>.
+        RUSHIKESH PATIL © 2025 • PUNE, MAHARASHTRA • SET IN <em>NEWSREADER</em> &amp; <em>INSTRUMENT SANS</em>
       </div>
       <div>
-        <a href="#prologue" style="color:var(--text-accent);">RETURN TO TOP ↑</a>
+        <a href="#prologue" style="color:var(--text-accent);">BACK TO TOP ↑</a>
       </div>
     </div>
   </footer>
 
-  <!-- Toast Notification -->
-  <div id="toast-el" class="editorial-toast"></div>
+  <div id="toast" class="minimal-toast"></div>
 
   <script src="app.js"></script>
 </body>

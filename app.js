@@ -1,110 +1,84 @@
 /**
- * RUSHIKESH PATIL — EDITORIAL PORTFOLIO ENGINE
- * Live IST Clock, Technical Inspector Tabs, Theme Switcher, and Copy Utilities
+ * RUSHIKESH PATIL — EDITORIAL MONOGRAPH ENGINE
+ * Live IST Clock, Technical Tabs, Palette Switcher, and Copy Feedback
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initLiveClock();
-  initThemeSwitcher();
-  initTechnicalTabs();
-  initCopyUtilities();
-  initContactForm();
+  initClock();
+  initTheme();
+  initInspectorTabs();
+  initCopy();
+  initForm();
   initScrollSpy();
 });
 
-/* --------------------------------------------------------------------------
-   1. Live Pune Time Clock (IST)
-   -------------------------------------------------------------------------- */
-function initLiveClock() {
-  const clockEl = document.getElementById('pune-clock');
-  if (!clockEl) return;
+/* 1. Live Indian Standard Time Clock */
+function initClock() {
+  const clock = document.getElementById('pune-clock');
+  if (!clock) return;
 
-  function updateClock() {
+  function update() {
     const now = new Date();
-    // Format to Indian Standard Time (IST: UTC+5:30)
-    const options = {
+    const timeStr = now.toLocaleTimeString('en-GB', {
       timeZone: 'Asia/Kolkata',
       hour: '2-digit',
       minute: '2-digit',
-      second: '2-digit',
       hour12: false
-    };
-    const timeStr = now.toLocaleTimeString('en-GB', options);
-    clockEl.textContent = `PUNE, IN [${timeStr} IST]`;
+    });
+    clock.textContent = `PUNE [${timeStr} IST]`;
   }
 
-  updateClock();
-  setInterval(updateClock, 1000);
+  update();
+  setInterval(update, 1000);
 }
 
-/* --------------------------------------------------------------------------
-   2. Archival Dark / Warm Cream Theme Switcher
-   -------------------------------------------------------------------------- */
-function initThemeSwitcher() {
-  const themeBtn = document.getElementById('theme-toggle');
-  const labelEl = document.getElementById('theme-mode-label');
-  if (!themeBtn) return;
+/* 2. Dark / Light Palette Switcher */
+function initTheme() {
+  const btn = document.getElementById('theme-toggle');
+  const label = document.getElementById('theme-mode-label');
+  if (!btn) return;
 
-  // Retrieve stored theme or default to dark
-  const storedTheme = localStorage.getItem('rp_editorial_theme') || 'dark';
-  document.documentElement.setAttribute('data-theme', storedTheme);
-  updateLabel(storedTheme);
+  const current = localStorage.getItem('rp_theme_mode') || 'dark';
+  document.documentElement.setAttribute('data-theme', current);
+  if (label) label.textContent = current === 'dark' ? 'LIGHT' : 'DARK';
 
-  themeBtn.addEventListener('click', () => {
-    const current = document.documentElement.getAttribute('data-theme') || 'dark';
-    const next = current === 'dark' ? 'light' : 'dark';
+  btn.addEventListener('click', () => {
+    const active = document.documentElement.getAttribute('data-theme') || 'dark';
+    const next = active === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', next);
-    localStorage.setItem('rp_editorial_theme', next);
-    updateLabel(next);
-    showToast(`Palette: ${next.toUpperCase()} MODE`);
+    localStorage.setItem('rp_theme_mode', next);
+    if (label) label.textContent = next === 'dark' ? 'LIGHT' : 'DARK';
+    showToast(`PALETTE: ${next.toUpperCase()}`);
   });
-
-  function updateLabel(theme) {
-    if (labelEl) {
-      labelEl.textContent = theme === 'dark' ? 'LIGHT' : 'DARK';
-    }
-  }
 }
 
-/* --------------------------------------------------------------------------
-   3. Technical Panel Tab Switching
-   -------------------------------------------------------------------------- */
-function initTechnicalTabs() {
-  const tabBtns = document.querySelectorAll('.panel-tab-btn[data-tab]');
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const targetId = btn.getAttribute('data-tab');
-      const parentPanel = btn.closest('.case-technical-panel');
-      if (!parentPanel) return;
+/* 3. Case 01 Technical Inspector Tabs */
+function initInspectorTabs() {
+  const tabs = document.querySelectorAll('.inspector-tab');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.getAttribute('data-tab');
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
 
-      // Update buttons inside this panel
-      parentPanel.querySelectorAll('.panel-tab-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+      const panes = document.querySelectorAll('.pane-content');
+      panes.forEach(p => p.style.display = 'none');
 
-      // Update panes inside this panel
-      parentPanel.querySelectorAll('.tab-pane').forEach(pane => {
-        pane.style.display = 'none';
-      });
-
-      const activePane = parentPanel.querySelector(`#pane-${targetId}`);
-      if (activePane) {
-        activePane.style.display = 'block';
-      }
+      const activePane = document.getElementById(`tab-${target}`);
+      if (activePane) activePane.style.display = 'block';
     });
   });
 }
 
-/* --------------------------------------------------------------------------
-   4. Copy Utilities & Discrete Toast Notification
-   -------------------------------------------------------------------------- */
-function initCopyUtilities() {
+/* 4. One-Click Copy Feedback */
+function initCopy() {
   const emailBtn = document.getElementById('copy-email-btn');
   if (emailBtn) {
     emailBtn.addEventListener('click', (e) => {
       e.preventDefault();
       const email = 'rushikesh.patil.work@gmail.com';
       navigator.clipboard.writeText(email).then(() => {
-        showToast('Address copied: rushikesh.patil.work@gmail.com');
+        showToast('COPIED: rushikesh.patil.work@gmail.com');
       }).catch(() => {
         window.location.href = `mailto:${email}`;
       });
@@ -112,64 +86,57 @@ function initCopyUtilities() {
   }
 }
 
-function showToast(message) {
-  const toast = document.getElementById('toast-el');
+function showToast(msg) {
+  const toast = document.getElementById('toast');
   if (!toast) return;
-
-  toast.textContent = message;
+  toast.textContent = msg;
   toast.style.display = 'block';
-
   setTimeout(() => {
     toast.style.display = 'none';
-  }, 3200);
+  }, 2500);
 }
 
-/* --------------------------------------------------------------------------
-   5. Editorial Memo Correspondence Handler
-   -------------------------------------------------------------------------- */
-function initContactForm() {
-  const form = document.getElementById('editorial-memo-form');
+/* 5. Contact Form Handler */
+function initForm() {
+  const form = document.getElementById('memo-form');
   if (!form) return;
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const sender = document.getElementById('memo-sender')?.value || 'Colleague';
-    const email = document.getElementById('memo-email')?.value || '';
-    const body = document.getElementById('memo-body')?.value || '';
+    const name = document.getElementById('name-input')?.value || 'Colleague';
+    const email = document.getElementById('email-input')?.value || '';
+    const msg = document.getElementById('msg-input')?.value || '';
 
-    showToast('Preparing dispatch via default email client...');
-
-    const mailtoLink = `mailto:rushikesh.patil.work@gmail.com?subject=${encodeURIComponent(`Inquiry from ${sender}`)}&body=${encodeURIComponent(body + `\n\nReturn Address: ${email}`)}`;
+    showToast('OPENING EMAIL CLIENT...');
+    const url = `mailto:rushikesh.patil.work@gmail.com?subject=${encodeURIComponent(`Inquiry from ${name}`)}&body=${encodeURIComponent(msg + `\n\nReturn Contact: ${email}`)}`;
 
     setTimeout(() => {
-      window.location.href = mailtoLink;
-    }, 600);
+      window.location.href = url;
+    }, 500);
   });
 }
 
-/* --------------------------------------------------------------------------
-   6. Scroll Spy for Navigation Links
-   -------------------------------------------------------------------------- */
+/* 6. Active Nav Link on Scroll */
 function initScrollSpy() {
   const sections = document.querySelectorAll('main section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
+  const links = document.querySelectorAll('.masthead-nav a');
 
   window.addEventListener('scroll', () => {
-    let currentId = '';
-    const scrollPos = window.scrollY + 120;
+    let current = '';
+    const pos = window.scrollY + 100;
 
     sections.forEach(sec => {
       const top = sec.offsetTop;
       const height = sec.offsetHeight;
-      if (scrollPos >= top && scrollPos < top + height) {
-        currentId = sec.getAttribute('id');
+      if (pos >= top && pos < top + height) {
+        current = sec.getAttribute('id');
       }
     });
 
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${currentId}`) {
-        link.classList.add('active');
+    links.forEach(l => {
+      l.classList.remove('active');
+      if (l.getAttribute('href') === `#${current}`) {
+        l.classList.add('active');
       }
     });
   }, { passive: true });
