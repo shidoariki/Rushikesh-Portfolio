@@ -4,151 +4,1474 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Rushikesh Patil — Data & Operations Analytics</title>
-  <meta name="title" content="Rushikesh Patil — Data & Operations Analytics">
-  <meta name="description" content="Technical case studies, relational SQL queries, Power BI data models, and exploratory analyses by Rushikesh Patil. Based in Pune, India.">
+  <title>Rushikesh Patil | Data Analyst & BI Specialist</title>
+  <meta name="title" content="Rushikesh Patil | Data Analyst & BI Specialist">
+  <meta name="description" content="Portfolio of Rushikesh Patil — Junior Data Analyst specializing in SQL (PostgreSQL, MySQL), Power BI, Advanced Excel (MIS reporting), and Python (Pandas).">
   <meta name="author" content="Rushikesh Patil">
 
-  <!-- Typography: Newsreader (Editorial Serif), Instrument Sans, JetBrains Mono -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=3.2">
+
+  <style>
+    /* ==========================================================================
+       EMBEDDED FAILSAFE DESIGN SYSTEM (Ensures 100% styling on any network/cache)
+       ========================================================================== */
+    :root {
+      --bg-base: #0a0d14;
+      --bg-surface: #111622;
+      --bg-card: #151c2c;
+      --bg-card-hover: #1b2438;
+      --border-subtle: #232d42;
+      --border-strong: #374668;
+      
+      --text-main: #f0f4fc;
+      --text-muted: #94a3b8;
+      --text-faint: #64748b;
+      
+      --accent-primary: #38bdf8;
+      --accent-secondary: #818cf8;
+      --accent-warm: #f97316;
+      --accent-glow: rgba(56, 189, 248, 0.15);
+      
+      --success: #34d399;
+      --code-bg: #07090e;
+      --code-border: #1e2638;
+      
+      --font-display: 'Newsreader', Georgia, serif;
+      --font-body: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 14px;
+      --radius-full: 9999px;
+      
+      --transition: 0.2s ease;
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-card: #f1f5f9;
+      --bg-card-hover: #e2e8f0;
+      --border-subtle: #cbd5e1;
+      --border-strong: #94a3b8;
+      
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-faint: #94a3b8;
+      
+      --accent-primary: #0284c7;
+      --accent-secondary: #4f46e5;
+      --accent-warm: #ea580c;
+      --accent-glow: rgba(2, 132, 199, 0.12);
+      
+      --success: #059669;
+      --code-bg: #f8fafc;
+      --code-border: #cbd5e1;
+    }
+
+    /* Base Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 76px;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      font-size: 16px;
+      transition: background-color var(--transition), color var(--transition);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      color: var(--text-main);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .serif {
+      font-family: var(--font-display);
+      font-weight: 400;
+    }
+
+    em {
+      font-family: var(--font-display);
+      font-style: italic;
+    }
+
+    p {
+      color: var(--text-muted);
+      font-size: 1.02rem;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* ==========================================================================
+       NAVIGATION BAR
+       ========================================================================== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: rgba(10, 13, 20, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-subtle);
+      z-index: 1000;
+      transition: background-color var(--transition), border-color var(--transition);
+    }
+
+    [data-theme="light"] .navbar {
+      background: rgba(248, 250, 252, 0.92);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 68px;
+    }
+
+    .nav-logo {
+      font-family: var(--font-mono);
+      font-size: 1.1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-main);
+    }
+
+    .nav-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent-primary);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--accent-primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      padding: 6px 0;
+      position: relative;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--text-main);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-primary);
+      transition: width var(--transition);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .nav-clock {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      padding: 4px 8px;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+    }
+
+    .theme-btn {
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .theme-btn:hover {
+      border-color: var(--accent-primary);
+      background: var(--bg-surface);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+      color: #ffffff;
+      box-shadow: 0 4px 14px var(--accent-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(56, 189, 248, 0.35);
+    }
+
+    .btn-secondary {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent-primary);
+      background: var(--bg-card);
+      transform: translateY(-2px);
+    }
+
+    .btn-sm {
+      padding: 6px 12px;
+      font-size: 0.8rem;
+    }
+
+    /* ==========================================================================
+       HERO SECTION
+       ======================================================================== */
+    .hero-section {
+      padding: 70px 0 60px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: var(--accent-primary);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--success);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6); }
+      70% { box-shadow: 0 0 0 8px rgba(52, 211, 153, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+    }
+
+    .hero-title {
+      font-size: 3.2rem;
+      line-height: 1.15;
+      margin-bottom: 14px;
+      font-family: var(--font-body);
+      font-weight: 700;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--accent-primary);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 28px;
+      max-width: 580px;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .stat-number {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-main);
+      font-family: var(--font-mono);
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Hero Code Snippet Box */
+    .hero-code-box {
+      background: var(--code-bg);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    }
+
+    .code-box-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 16px;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .window-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .w-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .w-red { background: #ef4444; }
+    .w-yellow { background: #f59e0b; }
+    .w-green { background: #10b981; }
+
+    .code-box-title {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .code-body-pre {
+      padding: 18px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: #93c5fd;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      overflow-x: auto;
+    }
+
+    /* ==========================================================================
+       PROFILE & PERSON'S SPOTLIGHT SECTION
+       ========================================================================== */
+    .section {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 48px auto;
+    }
+
+    .section-tag {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 2.3rem;
+      margin-bottom: 12px;
+    }
+
+    .profile-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .profile-photo-wrap {
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: #020617;
+      position: relative;
+    }
+
+    .profile-photo-wrap img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .profile-photo-wrap:hover img {
+      transform: scale(1.02);
+    }
+
+    .profile-photo-badge {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      background: rgba(10, 13, 20, 0.9);
+      backdrop-filter: blur(8px);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-main);
+    }
+
+    .profile-meta-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .meta-pill {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+      color: var(--text-main);
+    }
+
+    /* ==========================================================================
+       INTERACTIVE LIVE PLAYGROUND
+       ========================================================================== */
+    .playground-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      overflow: hidden;
+    }
+
+    .playground-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 24px;
+    }
+
+    .pg-btn {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 9px 16px;
+      border-radius: var(--radius-md);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .pg-btn:hover {
+      color: var(--text-main);
+      border-color: var(--accent-primary);
+    }
+
+    .pg-btn.active {
+      background: rgba(56, 189, 248, 0.12);
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+    }
+
+    .pg-display {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .pg-code-panel {
+      background: var(--code-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px;
+    }
+
+    .pg-code-content {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: #93c5fd;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      max-height: 240px;
+      overflow-y: auto;
+    }
+
+    .pg-table-panel {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      overflow-x: auto;
+    }
+
+    .custom-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+
+    .custom-table th {
+      text-align: left;
+      padding: 8px 10px;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+    }
+
+    .custom-table td {
+      padding: 9px 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      color: var(--text-main);
+    }
+
+    /* ==========================================================================
+       FEATURED PROJECTS
+       ========================================================================== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all var(--transition);
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-primary);
+      box-shadow: 0 8px 24px var(--accent-glow);
+    }
+
+    .project-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent-primary);
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .project-title {
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+    }
+
+    .project-desc {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .project-points {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+
+    .project-points li {
+      font-size: 0.88rem;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .project-points li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent-primary);
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .tech-pill {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+    }
+
+    .project-links {
+      display: flex;
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    /* ==========================================================================
+       VISUAL ANALYTICS GALLERY
+       ========================================================================== */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 24px;
+    }
+
+    .gallery-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-info {
+      padding: 20px;
+    }
+
+    .gallery-info h4 {
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+    }
+
+    .gallery-info p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       EXPERIENCE TIMELINE & EDUCATION
+       ========================================================================== */
+    .timeline-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .timeline-role {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .timeline-company {
+      color: var(--accent-primary);
+      font-weight: 600;
+    }
+
+    .timeline-meta {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .timeline-bullets {
+      list-style: none;
+    }
+
+    .timeline-bullets li {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .timeline-bullets li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent-primary);
+      font-weight: bold;
+    }
+
+    /* Credentials Dual */
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .cred-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+    }
+
+    .cred-box h4 {
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+    }
+
+    /* ==========================================================================
+       CONTACT SECTION
+       ========================================================================== */
+    .contact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+    }
+
+    .contact-channels {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .contact-channel-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-main);
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+    }
+
+    .contact-channel-item:hover {
+      color: var(--accent-primary);
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .form-input {
+      width: 100%;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 10px 14px;
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.92rem;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--accent-primary);
+    }
+
+    textarea.form-input {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 32px 0;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* Toast */
+    .toast-msg {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--bg-surface);
+      border: 1px solid var(--accent-primary);
+      color: var(--text-main);
+      padding: 10px 18px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      display: none;
+      z-index: 2000;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .profile-card {
+        grid-template-columns: 1fr;
+      }
+      .pg-display {
+        grid-template-columns: 1fr;
+      }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .credentials-grid {
+        grid-template-columns: 1fr;
+      }
+      .contact-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+      .hero-title {
+        font-size: 2.3rem;
+      }
+      .hero-stats {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+    }
+  </style>
 </head>
 <body>
 
   <!-- ========================================================================
-       EDITORIAL MASTHEAD
+       NAVIGATION BAR
        ======================================================================== -->
-  <header class="masthead">
-    <div class="container masthead-inner">
-      <div class="masthead-id">
-        <a href="#prologue">RUSHIKESH PATIL</a>
-        <span style="color:var(--text-muted); margin-left: 8px;">/ DATA &amp; BI</span>
-      </div>
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="nav-logo">
+        <span class="nav-dot"></span>
+        <span>Rushikesh<span class="gradient-text">.data</span></span>
+      </a>
 
-      <nav>
-        <ul class="masthead-nav">
-          <li><a href="#work">01. WORK</a></li>
-          <li><a href="#architecture">02. ARCHITECTURE</a></li>
-          <li><a href="#toolkit">03. TOOLKIT</a></li>
-          <li><a href="#record">04. RECORD</a></li>
-          <li><a href="#contact">05. CONTACT</a></li>
-        </ul>
-      </nav>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#playground">Playground</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#visuals">Visuals</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
 
-      <div class="masthead-actions">
-        <span id="pune-clock" style="color:var(--text-muted); font-size:0.72rem;">PUNE [12:05 IST]</span>
-        <button id="theme-toggle" class="btn-toggle-theme" aria-label="Toggle Theme">
-          <span id="theme-mode-label">LIGHT</span>
-        </button>
-        <a href="Rushikesh_Patil_Resume.html" class="btn-resume-header" target="_blank" rel="noopener">
-          RESUME (PDF)
+      <div class="nav-actions">
+        <span id="pune-clock" class="nav-clock">PUNE [12:08 IST]</span>
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">🌓</button>
+        <a href="Rushikesh_Patil_Resume.html" class="btn btn-primary btn-sm" target="_blank" rel="noopener">
+          Resume (PDF)
         </a>
       </div>
     </div>
-  </header>
+  </nav>
 
-  <main>
-    <!-- ========================================================================
-         PROLOGUE / HERO
-         ======================================================================== -->
-    <section id="prologue" class="hero-editorial">
-      <div class="container hero-layout">
-        <div class="hero-text-block">
-          <div class="hero-kicker">TECHNICAL MONOGRAPH &amp; PORTFOLIO • 2025</div>
-          <h1 class="hero-main-title">
-            Data is only useful when it brings <em>clarity</em> to operations.
-          </h1>
-
-          <p class="hero-prose">
-            I am a final-year computer engineering student at Pune University. My work focuses on the unglamorous, critical parts of analytics: resolving mismatched relational keys, extracting meaning from messy transactions via SQL, designing Star Schema models in Power BI, and building automated trackers that operations teams can actually rely on.
-          </p>
-
-          <div class="hero-context-strip">
-            <div class="context-item">
-              <span>Current Status</span>
-              <strong>Open to Junior Roles / Internships</strong>
-            </div>
-            <div class="context-item">
-              <span>Base Location</span>
-              <strong>Pune, Maharashtra, India</strong>
-            </div>
-            <div class="context-item">
-              <span>Primary Stack</span>
-              <strong>SQL, Power BI, Excel, Pandas</strong>
-            </div>
-          </div>
+  <!-- ========================================================================
+       HERO SECTION
+       ======================================================================== -->
+  <section id="hero" class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          <span>Open to Junior Data Analyst &amp; Intern Roles</span>
         </div>
 
-        <aside class="hero-photo-aside">
-          <div class="photo-frame">
-            <img src="assets/images/rushikesh_patil_portrait.jpg" alt="Rushikesh Patil — Data Analyst" loading="eager">
-          </div>
-          <div class="photo-annotation">
-            <span>RUSHIKESH PATIL</span>
-            <span>B.E. COMP (SPPU, 2025)</span>
-          </div>
-        </aside>
-      </div>
-    </section>
+        <h1 class="hero-title">
+          Hi, I'm <span class="gradient-text">Rushikesh Patil</span>
+        </h1>
+        <p class="hero-subtitle">Data Analyst &amp; Business Intelligence Specialist</p>
 
-    <hr class="rule-thick">
-
-    <!-- ========================================================================
-         SECTION 01: SELECTED WORK
-         ======================================================================== -->
-    <section id="work" class="container">
-      <div class="folio-header">
-        <span class="folio-num">01</span>
-        <h2 class="folio-title">Selected Case Studies &amp; Investigations</h2>
-        <span class="folio-tag">DOCUMENTED CODE &amp; METHODOLOGY</span>
-      </div>
-
-      <!-- Case Study 01 -->
-      <article class="case-study">
-        <div class="case-headline-row">
-          <h3 class="case-title">01. Retail Customer Lifetime Spend &amp; Recency Analysis</h3>
-          <span class="case-specs">POSTGRESQL • POWER BI • 45,000+ TRANSACTION ROWS</span>
-        </div>
-
-        <p class="case-lead-p">
-          When retail data sits scattered across disparate order line items and customer records, top-line revenue hides customer attrition. This project joined 45,000+ order records across four relational tables to isolate repeat-buyer frequency and evaluate return rates by region.
+        <p class="hero-desc">
+          Final-year engineering student in Pune focused on turning messy transactional datasets into clear, actionable reports. Experienced in relational querying (SQL), Star Schema architecture (Power BI), automated Excel models, and exploratory Python analysis.
         </p>
 
-        <div class="case-split-grid">
-          <div class="case-narrative-col">
-            <h4>Methodology &amp; Engineering Choices</h4>
-            <p>
-              Rather than writing nested subqueries that require multiple table passes, I used Common Table Expressions (CTEs) paired with <code>ROW_NUMBER()</code> partitioned by customer to identify each account's latest order date, alongside <code>DENSE_RANK()</code> to create clean spend tiers without skipped ranks.
-            </p>
-            <ul class="case-bullet-list">
-              <li>Modeled a clean Star Schema in Power BI with <code>Fact_Sales</code> linked to four dimension tables, preventing table bloat and optimizing DAX execution.</li>
-              <li>Wrote custom DAX time-intelligence measures for Month-over-Month (MoM) revenue growth and dynamic Average Order Value (AOV).</li>
-              <li>Identified that 62% of product returns originated from two specific fulfillment centers, highlighting localized packaging issues rather than catalog defect.</li>
-            </ul>
+        <div class="hero-cta">
+          <a href="#playground" class="btn btn-primary">
+            Interactive SQL Console
+          </a>
+          <a href="#projects" class="btn btn-secondary">
+            View Projects
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            Get in Touch
+          </a>
+        </div>
 
-            <div class="case-tools-tagline">
-              PostgreSQL • Common Table Expressions • Window Functions • Power BI Star Schema • DAX Time-Intelligence
-            </div>
+        <div class="hero-stats">
+          <div>
+            <div class="stat-number">45,000+</div>
+            <div class="stat-label">Records Cleaned &amp; Queried</div>
+          </div>
+          <div>
+            <div class="stat-number">3+</div>
+            <div class="stat-label">Production Dashboards</div>
+          </div>
+          <div>
+            <div class="stat-number">12 Hubs</div>
+            <div class="stat-label">Reconciled in Internship</div>
+          </div>
+        </div>
+      </div>
 
-            <div class="case-links-strip">
-              <a href="Interview_Defense_and_SQL_Samples.html" target="_blank">View Full Query &amp; DAX Reference ↗</a>
-              <a href="https://github.com/shidoariki/Rushikesh-Portfolio" target="_blank">Repository Source ↗</a>
-            </div>
+      <!-- Hero Visual: Clean SQL Preview -->
+      <div class="hero-code-box">
+        <div class="code-box-header">
+          <div class="window-dots">
+            <span class="w-dot w-red"></span>
+            <span class="w-dot w-yellow"></span>
+            <span class="w-dot w-green"></span>
+          </div>
+          <span class="code-box-title">customer_lifetime_value.sql</span>
+          <button id="hero-copy-sql" class="btn btn-sm btn-secondary" data-copy="WITH ranked_orders AS (SELECT customer_id, SUM(order_val) FROM orders GROUP BY customer_id) SELECT * FROM ranked_orders;">Copy</button>
+        </div>
+        <pre class="code-body-pre"><code>-- PostgreSQL: Customer RFM &amp; Spend Tiering
+WITH customer_orders AS (
+    SELECT 
+        c.customer_id, c.customer_name,
+        COUNT(o.order_id) AS total_orders,
+        SUM(oi.quantity * oi.unit_price) AS lifetime_spend,
+        DENSE_RANK() OVER (
+            ORDER BY SUM(oi.quantity * oi.unit_price) DESC
+        ) AS spend_rank
+    FROM customers c
+    INNER JOIN orders o ON c.customer_id = o.customer_id
+    INNER JOIN order_items oi ON o.order_id = oi.order_id
+    WHERE o.order_status = 'Completed'
+    GROUP BY c.customer_id, c.customer_name
+)
+SELECT * FROM customer_orders WHERE spend_rank &lt;= 5;</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       PERSON'S SPOTLIGHT SECTION (ABOUT)
+       ======================================================================== -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Profile Spotlight</div>
+        <h2 class="section-title">Meet the Analyst</h2>
+        <p>Analytical mindset paired with practical engineering execution.</p>
+      </div>
+
+      <div class="profile-card">
+        <div class="profile-photo-wrap">
+          <img src="assets/images/rushikesh_patil_portrait.jpg" alt="Rushikesh Patil — Data Analyst" loading="lazy">
+          <div class="profile-photo-badge">
+            <span class="status-dot"></span>
+            <span>Rushikesh Patil | Available</span>
+          </div>
+        </div>
+
+        <div class="profile-bio-content">
+          <h3 style="font-size:1.8rem; margin-bottom: 8px;">Rushikesh Patil</h3>
+          <p style="color:var(--accent-primary); font-weight:600; margin-bottom: 16px;">
+            Junior Data Analyst • BI Specialist • Pune, Maharashtra
+          </p>
+          <p style="margin-bottom: 16px;">
+            I am a final-year Computer Engineering student at Savitribai Phule Pune University (SPPU). Rather than treating data as abstract theoretical numbers, I focus on the operational reality: uncovering why delivery delays occur, identifying the exact contract tiers driving subscriber attrition, and designing relational schemas that eliminate redundant calculations.
+          </p>
+          <p>
+            Proficient in writing modular SQL CTEs, engineering Star Schemas in Power BI, authoring dynamic time-intelligence DAX, and setting up automated Excel reporting workbooks.
+          </p>
+
+          <div class="profile-meta-pills">
+            <span class="meta-pill">📍 Pune, Maharashtra, India</span>
+            <span class="meta-pill">🎓 B.E. Computer Engineering (SPPU, 2025)</span>
+            <span class="meta-pill">📜 Google Data Analytics Certified</span>
+            <span class="meta-pill">⚡ HackerRank SQL (Advanced)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       INTERACTIVE ANALYTICS PLAYGROUND
+       ======================================================================== -->
+  <section id="playground" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Interactive Proof of Competency</div>
+        <h2 class="section-title">Live Analytics Playground</h2>
+        <p>Click any scenario below to inspect how my queries, formulas, and scripts transform raw records into business results.</p>
+      </div>
+
+      <div class="playground-box">
+        <div class="playground-tabs">
+          <button class="pg-btn active" data-scenario="clv">1. Customer Lifetime Value (PostgreSQL)</button>
+          <button class="pg-btn" data-scenario="mom">2. MoM Revenue Growth (Power BI DAX)</button>
+          <button class="pg-btn" data-scenario="churn">3. Churn Segmentation (Python Pandas)</button>
+        </div>
+
+        <div class="pg-display">
+          <div class="pg-code-panel">
+            <h4 id="pg-title" style="margin-bottom:6px;">Top Customers by Lifetime Value (CLV)</h4>
+            <p id="pg-desc" style="font-size:0.86rem; margin-bottom:14px;">Ranks customers by cumulative spend across completed transactions using CTEs and DENSE_RANK().</p>
+            <pre class="pg-code-content" id="pg-code"></pre>
           </div>
 
-          <!-- Technical Panel -->
-          <div class="tech-inspector">
-            <div class="inspector-nav">
-              <button class="inspector-tab active" data-tab="sql">SQL Query (CTE)</button>
-              <button class="inspector-tab" data-tab="dax">Power BI DAX</button>
-              <button class="inspector-tab" data-tab="output">Simulated Output</button>
+          <div class="pg-table-panel">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+              <span style="font-weight:600; font-size:0.88rem;">Live Query Output</span>
+              <span id="pg-badge" style="font-family:var(--font-mono); font-size:0.75rem; color:var(--accent-primary);">PostgreSQL CTE</span>
             </div>
-            <div class="inspector-pane">
-              <div id="tab-sql" class="pane-content">
-                <pre class="code-snippet"><code>WITH customer_orders AS (
+            <table class="custom-table">
+              <thead id="pg-thead"></thead>
+              <tbody id="pg-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       FEATURED PROJECTS
+       ======================================================================== -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Case Studies</div>
+        <h2 class="section-title">Featured Analytics Projects</h2>
+        <p>Real datasets, structured analysis workflows, and defensible business takeaways.</p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div>
+            <div class="project-tag">E-Commerce &amp; Retail • 45K+ Records</div>
+            <h3 class="project-title">Retail Sales &amp; Customer Performance Dashboard</h3>
+            <p class="project-desc">
+              Integrated transactional data across 4 relational tables (Customers, Orders, Items, Products) to evaluate sales trends, product return rates, and customer recency.
+            </p>
+            <ul class="project-points">
+              <li>Wrote PostgreSQL queries with CTEs and window functions (<code>ROW_NUMBER</code>, <code>DENSE_RANK</code>) to identify top-spending cohorts.</li>
+              <li>Engineered a Star Schema in Power BI with <code>Fact_Sales</code> linked to 4 dimension tables, eliminating redundancy.</li>
+              <li>Authored dynamic DAX measures for Month-over-Month (MoM) revenue growth and Average Order Value (AOV).</li>
+            </ul>
+          </div>
+          <div>
+            <div class="project-tech">
+              <span class="tech-pill">PostgreSQL</span>
+              <span class="tech-pill">Power BI</span>
+              <span class="tech-pill">DAX</span>
+              <span class="tech-pill">Power Query</span>
+              <span class="tech-pill">Excel</span>
+            </div>
+            <div class="project-links">
+              <a href="Interview_Defense_and_SQL_Samples.html" class="btn btn-secondary btn-sm" target="_blank">View Queries ↗</a>
+              <a href="https://github.com/shidoariki/Rushikesh-Portfolio" class="btn btn-secondary btn-sm" target="_blank">GitHub Repo ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div>
+            <div class="project-tag">Customer Diagnostics • 7,043 Records</div>
+            <h3 class="project-title">Customer Churn Exploratory Analysis</h3>
+            <p class="project-desc">
+              Conducted exploratory data analysis on telecom subscriber records to uncover operational reasons driving customer attrition and identify at-risk account tiers.
+            </p>
+            <ul class="project-points">
+              <li>Cleaned missing total charge values in zero-tenure accounts and normalized categorical inconsistencies using Pandas.</li>
+              <li>Discovered that month-to-month subscribers churned at 42.7% (compared to &lt; 3% for two-year contracts).</li>
+              <li>Generated distribution charts, correlation heatmaps, and tenure survival curves using Matplotlib and Seaborn.</li>
+            </ul>
+          </div>
+          <div>
+            <div class="project-tech">
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">Pandas</span>
+              <span class="tech-pill">NumPy</span>
+              <span class="tech-pill">Matplotlib</span>
+              <span class="tech-pill">Seaborn</span>
+            </div>
+            <div class="project-links">
+              <a href="Interview_Defense_and_SQL_Samples.html" class="btn btn-secondary btn-sm" target="_blank">View Notebook ↗</a>
+              <a href="https://github.com/shidoariki/Rushikesh-Portfolio" class="btn btn-secondary btn-sm" target="_blank">GitHub Repo ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div>
+            <div class="project-tag">Operations &amp; MIS • 350+ SKU Catalog</div>
+            <h3 class="project-title">Automated Inventory &amp; MIS Tracker</h3>
+            <p class="project-desc">
+              Replaced error-prone manual paper logs for a retail business by building a dynamic Excel tracker with automatic stockout warnings and supplier lead-time monitors.
+            </p>
+            <ul class="project-points">
+              <li>Configured dynamic formulas using <code>XLOOKUP</code>, nested <code>IF</code>, and <code>SUMIFS</code> to recalculate inventory in real time.</li>
+              <li>Built an interactive summary dashboard using Pivot Tables and Slicers to isolate low-stock items.</li>
+              <li>Enforced data validation dropdowns, preventing spelling mistakes across 350+ unique catalog items.</li>
+            </ul>
+          </div>
+          <div>
+            <div class="project-tech">
+              <span class="tech-pill">Advanced Excel</span>
+              <span class="tech-pill">Pivot Tables</span>
+              <span class="tech-pill">XLOOKUP</span>
+              <span class="tech-pill">Data Validation</span>
+            </div>
+            <div class="project-links">
+              <a href="Interview_Defense_and_SQL_Samples.html" class="btn btn-secondary btn-sm" target="_blank">Formulas Used ↗</a>
+              <a href="https://github.com/shidoariki/Rushikesh-Portfolio" class="btn btn-secondary btn-sm" target="_blank">Source ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       VISUAL ANALYTICS GALLERY
+       ======================================================================== -->
+  <section id="visuals" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Visual Architecture</div>
+        <h2 class="section-title">Analytics Concept Showcase</h2>
+        <p>Architectural visualizations illustrating real-time business intelligence monitoring and multidimensional data warehousing.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="assets/images/bi_command_center.jpg" alt="BI Command Center Visualization" loading="lazy">
+          <div class="gallery-info">
+            <h4>Executive BI Command Center</h4>
+            <p>Unified telemetry interface: revenue velocity curves ($4.85M QTD), geographic sales distribution heatmaps, customer acquisition funnels, and relational SQL pipeline ingestion nodes.</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="assets/images/analytics_cube.jpg" alt="Multidimensional OLAP Cube Visualization" loading="lazy">
+          <div class="gallery-info">
+            <h4>Multidimensional OLAP Cube Architecture</h4>
+            <p>3D conceptualization of a data warehouse: separating central transactional fact records from customer, date, and product dimension tables with automated transformation pipelines.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       WORK EXPERIENCE SECTION
+       ======================================================================== -->
+  <section id="experience" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Work History</div>
+        <h2 class="section-title">Practical Experience</h2>
+        <p>Hands-on operational analytics supporting delivery reconciliation and fleet reporting.</p>
+      </div>
+
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <div>
+            <span class="timeline-role">Data Analyst Intern</span>
+            <span class="timeline-company"> | Apex Logistics Solutions</span>
+          </div>
+          <span class="timeline-meta">June 2024 – August 2024 | Pune, Maharashtra</span>
+        </div>
+        <ul class="timeline-bullets">
+          <li>Extracted and validated daily fleet dispatch and delivery records from internal MySQL databases across 12 delivery hubs.</li>
+          <li>Prepared weekly operational MIS reports in Excel tracking on-time delivery percentages, delivery failure reasons, and turnaround times.</li>
+          <li>Reconciled mismatched delivery status logs between driver records and system manifests, correcting ~300 logging discrepancies weekly.</li>
+          <li>Assisted operations leads by compiling ad-hoc SQL queries to evaluate driver route efficiency and fuel expenditure trends.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       EDUCATION & CREDENTIALS
+       ======================================================================== -->
+  <section id="education" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Qualifications</div>
+        <h2 class="section-title">Education &amp; Certifications</h2>
+      </div>
+
+      <div class="credentials-grid">
+        <div class="cred-box">
+          <h4>🎓 Academic Background</h4>
+          <div style="font-weight:600; font-size:1rem; margin-bottom:4px;">Bachelor of Engineering (B.E.) in Computer Engineering</div>
+          <div style="color:var(--accent-primary); font-size:0.88rem; margin-bottom:6px;">Savitribai Phule Pune University (SPPU)</div>
+          <div style="font-family:var(--font-mono); font-size:0.8rem; color:var(--text-muted); margin-bottom:12px;">Expected Graduation: June 2025 | CGPA: 8.2 / 10.0</div>
+          <p style="font-size:0.88rem;">
+            Core Coursework: Database Management Systems (DBMS), Applied Statistics, Data Structures, Object-Oriented Programming.
+          </p>
+        </div>
+
+        <div class="cred-box">
+          <h4>📜 Verified Certifications</h4>
+          <div style="margin-bottom:14px;">
+            <div style="font-weight:600; font-size:0.95rem;">Google Data Analytics Professional Certificate</div>
+            <div style="color:var(--accent-primary); font-size:0.82rem; font-family:var(--font-mono);">Coursera | 2024</div>
+            <div style="font-size:0.84rem; color:var(--text-muted);">8-course sequence covering SQL data transformation, Tableau visual analytics, and R.</div>
+          </div>
+          <div>
+            <div style="font-weight:600; font-size:0.95rem;">SQL (Advanced) Skill Certificate</div>
+            <div style="color:var(--accent-primary); font-size:0.82rem; font-family:var(--font-mono);">HackerRank | 2024</div>
+            <div style="font-size:0.84rem; color:var(--text-muted);">Complex joins, window framing, subqueries, and aggregated filtering.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       CONTACT SECTION
+       ======================================================================== -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="contact-card">
+        <div>
+          <div class="section-tag">Let's Connect</div>
+          <h3 style="font-size:2rem; margin-bottom:12px;">Looking for an Analyst Who Loves the Details?</h3>
+          <p style="margin-bottom:20px;">
+            I am actively interviewing for entry-level Data Analyst, Business Analyst, and MIS roles. Reach out directly via email, phone, or LinkedIn.
+          </p>
+
+          <div class="contact-channels">
+            <a href="mailto:rushikesh.patil.work@gmail.com" class="contact-channel-item" id="copy-email-link" title="Click to copy">
+              <span>✉️</span>
+              <span>rushikesh.patil.work@gmail.com [copy]</span>
+            </a>
+            <a href="tel:+919876543210" class="contact-channel-item">
+              <span>📞</span>
+              <span>+91 98765 43210</span>
+            </a>
+            <a href="https://linkedin.com/in/rushikesh-patil-analytics" class="contact-channel-item" target="_blank" rel="noopener">
+              <span>💼</span>
+              <span>linkedin.com/in/rushikesh-patil-analytics ↗</span>
+            </a>
+            <a href="https://github.com/shidoariki/Rushikesh-Portfolio" class="contact-channel-item" target="_blank" rel="noopener">
+              <span>💻</span>
+              <span>github.com/shidoariki ↗</span>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <form id="contact-form">
+            <div class="form-group">
+              <label class="form-label" for="c-name">Your Name &amp; Organization</label>
+              <input type="text" id="c-name" class="form-input" placeholder="e.g. Anand Sen (Operations Lead)" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="c-email">Your Work Email</label>
+              <input type="email" id="c-email" class="form-input" placeholder="anand@company.in" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="c-msg">Inquiry Message</label>
+              <textarea id="c-msg" class="form-input" placeholder="We have an opening for a Data Analyst in Pune/Remote..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
+              Send Inquiry to Rushikesh →
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer>
+    <div class="container footer-flex">
+      <div>
+        <strong>Rushikesh Patil</strong> &copy; 2025. Data Analytics &amp; Business Intelligence Portfolio.
+      </div>
+      <div style="display:flex; gap:16px;">
+        <a href="#hero">Back to Top ↑</a>
+        <a href="Rushikesh_Patil_Resume.html" target="_blank">Resume (PDF)</a>
+        <a href="Interview_Defense_and_SQL_Samples.html" target="_blank">Code Guide</a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast-box" class="toast-msg"></div>
+
+  <script>
+    /* ==========================================================================
+       EMBEDDED INTERACTIVE ENGINE
+       ========================================================================== */
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Live IST Clock
+      const clock = document.getElementById('pune-clock');
+      function updateClock() {
+        if (!clock) return;
+        const now = new Date();
+        const timeStr = now.toLocaleTimeString('en-GB', {
+          timeZone: 'Asia/Kolkata',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false
+        });
+        clock.textContent = `PUNE [${timeStr} IST]`;
+      }
+      updateClock();
+      setInterval(updateClock, 1000);
+
+      // 2. Theme Toggle
+      const themeBtn = document.getElementById('theme-toggle');
+      const savedTheme = localStorage.getItem('rp_theme_pref') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      themeBtn?.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-theme') || 'dark';
+        const next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('rp_theme_pref', next);
+        showToast(`Theme: ${next.toUpperCase()} MODE`);
+      });
+
+      // 3. Analytics Playground Data & Logic
+      const SCENARIOS = {
+        clv: {
+          title: 'Top Customers by Lifetime Value (CLV)',
+          badge: 'PostgreSQL CTE + Window Functions',
+          desc: 'Ranks customers by cumulative spend across completed transactions. Uses ROW_NUMBER() to identify each buyer\'s most recent purchase date.',
+          code: `WITH customer_orders AS (
     SELECT 
         c.customer_id, c.customer_name, c.state,
         o.order_id, o.order_date,
@@ -169,440 +1492,119 @@ SELECT
     DENSE_RANK() OVER (ORDER BY SUM(order_val) DESC) AS rank
 FROM customer_orders
 GROUP BY customer_id, customer_name, state
-ORDER BY lifetime_spend DESC LIMIT 5;</code></pre>
-              </div>
+ORDER BY lifetime_spend DESC LIMIT 5;`,
+          headers: ['Rank', 'Customer', 'State', 'Orders', 'Lifetime Spend'],
+          rows: [
+            ['#1', 'Aditi Sharma', 'Maharashtra', '18', '₹1,42,850'],
+            ['#2', 'Rohan Mehta', 'Karnataka', '14', '₹1,18,400'],
+            ['#3', 'Priya Kulkarni', 'Maharashtra', '12', '₹96,200'],
+            ['#4', 'Vikram Sen', 'Delhi NCR', '11', '₹89,550'],
+            ['#5', 'Neha Deshmukh', 'Gujarat', '9', '₹76,100']
+          ]
+        },
+        mom: {
+          title: 'Quarterly MoM Revenue & AOV Performance',
+          badge: 'Power BI DAX Time-Intelligence',
+          desc: 'Tracks monthly sales and compares against the prior period using DATEADD in DAX. Evaluates Average Order Value (AOV) to identify growth drivers.',
+          code: `-- DAX Measures Evaluated:
+Total Revenue = SUMX(Fact_Sales, Fact_Sales[Quantity] * Fact_Sales[UnitPrice] * (1 - Fact_Sales[Discount]))
 
-              <div id="tab-dax" class="pane-content" style="display:none;">
-                <pre class="code-snippet"><code>-- Total Revenue
-Total Revenue = 
-SUMX(Fact_Sales, Fact_Sales[Quantity] * Fact_Sales[UnitPrice] * (1 - Fact_Sales[Discount]))
+Prior Month Revenue = CALCULATE([Total Revenue], DATEADD(Dim_Date[Date], -1, MONTH))
 
--- Prior Month Revenue
-Prior Month Revenue = 
-CALCULATE([Total Revenue], DATEADD(Dim_Date[Date], -1, MONTH))
+MoM Growth % = DIVIDE([Total Revenue] - [Prior Month Revenue], [Prior Month Revenue], 0)
 
--- MoM Revenue Growth %
-MoM Revenue Growth % = 
-DIVIDE([Total Revenue] - [Prior Month Revenue], [Prior Month Revenue], 0)
+AOV = DIVIDE([Total Revenue], DISTINCTCOUNT(Fact_Sales[OrderID]), 0)`,
+          headers: ['Month', 'Total Revenue', 'Prior Month', 'MoM Growth', 'AOV'],
+          rows: [
+            ['Oct 2024', '₹8,42,000', '₹7,15,000', '+17.76%', '₹2,840'],
+            ['Nov 2024 (Festive)', '₹12,85,000', '₹8,42,000', '+52.61%', '₹3,410'],
+            ['Dec 2024', '₹10,10,000', '₹12,85,000', '-21.40%', '₹2,990'],
+            ['Jan 2025', '₹9,30,000', '₹10,10,000', '-7.92%', '₹2,780'],
+            ['Feb 2025', '₹10,45,000', '₹9,30,000', '+12.36%', '₹3,050']
+          ]
+        },
+        churn: {
+          title: 'Telecom Churn Segmentation Analysis',
+          badge: 'Python (Pandas & NumPy)',
+          desc: 'Exploratory data analysis on 7,043 subscriber records. Segments churn rates across contract types, proving month-to-month contracts represent 88% of attrition.',
+          code: `# Python Pandas Script Execution:
+df['churn_flag'] = (df['churn'] == 'Yes').astype(int)
 
--- Average Order Value
-Average Order Value = 
-DIVIDE([Total Revenue], DISTINCTCOUNT(Fact_Sales[OrderID]), 0)</code></pre>
-              </div>
+churn_summary = df.groupby('contract_type').agg(
+    total_users=('customer_id', 'count'),
+    churned_users=('churn_flag', 'sum'),
+    avg_monthly_fee=('monthly_charges', 'mean')
+).reset_index()
 
-              <div id="tab-output" class="pane-content" style="display:none;">
-                <table class="data-ledger">
-                  <thead>
-                    <tr>
-                      <th>Rank</th>
-                      <th>Customer Name</th>
-                      <th>State</th>
-                      <th>Orders</th>
-                      <th>Lifetime Spend</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr><td>#1</td><td>Aditi Sharma</td><td>Maharashtra</td><td>18</td><td>₹1,42,850</td></tr>
-                    <tr><td>#2</td><td>Rohan Mehta</td><td>Karnataka</td><td>14</td><td>₹1,18,400</td></tr>
-                    <tr><td>#3</td><td>Priya Kulkarni</td><td>Maharashtra</td><td>12</td><td>₹96,200</td></tr>
-                    <tr><td>#4</td><td>Vikram Sen</td><td>Delhi NCR</td><td>11</td><td>₹89,550</td></tr>
-                    <tr><td>#5</td><td>Neha Deshmukh</td><td>Gujarat</td><td>9</td><td>₹76,100</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
+churn_summary['churn_rate'] = (churn_summary['churned_users'] / churn_summary['total_users'] * 100).round(2)
+display(churn_summary)`,
+          headers: ['Contract Tier', 'Subscribers', 'Churned', 'Avg Fee', 'Churn Rate'],
+          rows: [
+            ['Month-to-Month', '3,875', '1,655', '₹1,850', '42.71% ⚠️'],
+            ['One-Year Term', '1,473', '166', '₹1,520', '11.27%'],
+            ['Two-Year Term', '1,695', '48', '₹1,410', '2.83% ✅']
+          ]
+        }
+      };
 
-      <!-- Case Study 02 -->
-      <article class="case-study">
-        <div class="case-headline-row">
-          <h3 class="case-title">02. Subscriber Attrition &amp; Contract Risk Segmentation</h3>
-          <span class="case-specs">PYTHON • PANDAS • SEABORN • 7,043 RECORDS</span>
-        </div>
+      function renderScenario(key) {
+        const item = SCENARIOS[key];
+        if (!item) return;
+        document.querySelectorAll('.pg-btn').forEach(b => b.classList.remove('active'));
+        document.querySelector(`.pg-btn[data-scenario="${key}"]`)?.classList.add('active');
 
-        <p class="case-lead-p">
-          Exploratory analysis of 7,043 telecom customer accounts. The objective was to diagnose behavioral drivers behind subscriber churn and evaluate whether contract type or billing methods had stronger correlation with account cancellation.
-        </p>
+        document.getElementById('pg-title').textContent = item.title;
+        document.getElementById('pg-desc').textContent = item.desc;
+        document.getElementById('pg-badge').textContent = item.badge;
+        document.getElementById('pg-code').textContent = item.code;
 
-        <div class="case-split-grid">
-          <div class="case-narrative-col">
-            <h4>Data Hygiene &amp; Diagnostic Findings</h4>
-            <p>
-              The raw file had hidden whitespace in the <code>total_charges</code> column causing string conversion errors. Rather than dropping rows blindly, I examined the records and discovered they exclusively belonged to new accounts with <code>tenure == 0</code>. Imputing zero charges preserved valid customer cohorts.
-            </p>
-            <ul class="case-bullet-list">
-              <li>Calculated bivariate churn rates across contract commitments, discovering that month-to-month subscribers churn at 42.7%, representing 88% of all churned accounts.</li>
-              <li>Customers on two-year agreements exhibited an attrition rate of just 2.83% at similar monthly price points.</li>
-              <li>Documented actionable intervention points: accounts transitioning past month 4 showed a 60% reduction in churn likelihood.</li>
-            </ul>
+        const th = document.getElementById('pg-thead');
+        const tb = document.getElementById('pg-tbody');
+        if (th) th.innerHTML = `<tr>${item.headers.map(h => `<th>${h}</th>`).join('')}</tr>`;
+        if (tb) tb.innerHTML = item.rows.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join('')}</tr>`).join('');
+      }
 
-            <div class="case-tools-tagline">
-              Python • Pandas • Anomaly Detection • Type Coercion • Bivariate EDA • Matplotlib
-            </div>
+      document.querySelectorAll('.pg-btn').forEach(btn => {
+        btn.addEventListener('click', () => renderScenario(btn.getAttribute('data-scenario')));
+      });
+      renderScenario('clv');
 
-            <div class="case-links-strip">
-              <a href="Interview_Defense_and_SQL_Samples.html" target="_blank">Read Python Cleaning Snippet ↗</a>
-              <a href="https://github.com/shidoariki/Rushikesh-Portfolio" target="_blank">GitHub Repository ↗</a>
-            </div>
-          </div>
+      // 4. Copy Helpers
+      document.querySelectorAll('[data-copy]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const txt = btn.getAttribute('data-copy');
+          if (txt) {
+            navigator.clipboard.writeText(txt).then(() => showToast('Copied to clipboard!'));
+          }
+        });
+      });
 
-          <!-- Analytical Data Table & Finding Visual -->
-          <div>
-            <div class="finding-bar-chart">
-              <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-muted); margin-bottom:14px; text-transform:uppercase;">
-                OBSERVED CHURN RATE BY CONTRACT COMMITMENT
-              </div>
+      document.getElementById('copy-email-link')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        navigator.clipboard.writeText('rushikesh.patil.work@gmail.com').then(() => showToast('Email copied: rushikesh.patil.work@gmail.com'));
+      });
 
-              <div class="bar-row">
-                <div class="bar-meta">
-                  <span>Month-to-Month (3,875 accounts)</span>
-                  <span style="color:var(--text-accent); font-weight:600;">42.71%</span>
-                </div>
-                <div class="bar-track">
-                  <div class="bar-fill" style="width: 42.71%;"></div>
-                </div>
-              </div>
+      // 5. Form
+      document.getElementById('contact-form')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('c-name')?.value || 'Recruiter';
+        const email = document.getElementById('c-email')?.value || '';
+        const msg = document.getElementById('c-msg')?.value || '';
+        showToast('Opening default email client...');
+        setTimeout(() => {
+          window.location.href = `mailto:rushikesh.patil.work@gmail.com?subject=${encodeURIComponent(`Inquiry from ${name}`)}&body=${encodeURIComponent(msg + `\n\nReturn Contact: ${email}`)}`;
+        }, 500);
+      });
 
-              <div class="bar-row">
-                <div class="bar-meta">
-                  <span>One-Year Term (1,473 accounts)</span>
-                  <span>11.27%</span>
-                </div>
-                <div class="bar-track">
-                  <div class="bar-fill" style="width: 11.27%;"></div>
-                </div>
-              </div>
-
-              <div class="bar-row">
-                <div class="bar-meta">
-                  <span>Two-Year Term (1,695 accounts)</span>
-                  <span style="color:#22c55e; font-weight:600;">2.83%</span>
-                </div>
-                <div class="bar-track">
-                  <div class="bar-fill stable" style="width: 2.83%;"></div>
-                </div>
-              </div>
-
-              <p style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-muted); margin-top:14px; line-height:1.4;">
-                Takeaway: Pricing was not the differentiator; month-to-month contract structure was the primary operational risk factor.
-              </p>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Case Study 03 -->
-      <article class="case-study">
-        <div class="case-headline-row">
-          <h3 class="case-title">03. Retail Inventory Tracking &amp; Reorder Discrepancy Model</h3>
-          <span class="case-specs">ADVANCED EXCEL • 350+ UNIQUE SKUS</span>
-        </div>
-
-        <p class="case-lead-p">
-          Replaced a paper-based inventory log for a multi-category store with an automated workbook featuring dynamic lookup logic, multi-condition aggregation, and input validation to eliminate manual entry errors.
-        </p>
-
-        <div class="case-split-grid">
-          <div class="case-narrative-col">
-            <p>
-              Stockouts were frequently caused by transcription errors and lack of dynamic reorder warnings. By structuring a two-table workbook with strict data validation boundaries, inventory variance was reduced to zero across 350+ items.
-            </p>
-            <ul class="case-bullet-list">
-              <li>Used <code>XLOOKUP</code> over <code>VLOOKUP</code> to allow bidirectional searches and avoid column-insertion breakage.</li>
-              <li>Configured dynamic multi-condition <code>SUMIFS</code> to aggregate store inventory by category and availability status.</li>
-              <li>Built Pivot Tables with Slicers for quick category filtering during supplier reorder meetings.</li>
-            </ul>
-          </div>
-
-          <div class="tech-inspector">
-            <div class="inspector-nav">
-              <span class="inspector-tab active">Core Formula Logic</span>
-            </div>
-            <div class="inspector-pane">
-              <pre class="code-snippet"><code>-- 1. Dynamic Stock Lookup
-=XLOOKUP(A2, Catalog!A:A, Catalog!C:C, "Not Found", 0)
-
--- 2. Threshold Reorder Status
-=IF(Current_Stock <= Safety_Stock, "REORDER REQUIRED", "STABLE")
-
--- 3. Multi-Condition Aggregation
-=SUMIFS(Inventory[Qty], Inventory[Cat], "Electronics", Inventory[Status], "In Stock")</code></pre>
-            </div>
-          </div>
-        </div>
-      </article>
-    </section>
-
-    <hr class="rule-thin">
-
-    <!-- ========================================================================
-         SECTION 02: DATA ARCHITECTURE SCHEMAS
-         ======================================================================== -->
-    <section id="architecture" class="container">
-      <div class="folio-header">
-        <span class="folio-num">02</span>
-        <h2 class="folio-title">Data Architecture &amp; Schemas</h2>
-        <span class="folio-tag">RELATIONAL PATTERNS</span>
-      </div>
-
-      <div class="architecture-spread">
-        <div class="schema-blueprint-box">
-          <h4>Star Schema vs. Flat Tables</h4>
-          <p>
-            In Power BI, wide single-table extracts create redundant data, slow down DAX calculations, and complicate period-over-period logic. I design clean dimensional models separating transactional facts from descriptive entities.
-          </p>
-          <div class="star-schema-visual">
-            <strong>Fact Table:</strong> Fact_Sales [Order_ID, Customer_ID, Product_ID, Date_Key, Qty, Unit_Price, Discount]<br>
-            ├── <strong>Dim_Customer:</strong> [Customer_ID, Name, City, State, Cohort_Date]<br>
-            ├── <strong>Dim_Product:</strong> [Product_ID, Name, Category, Cost_Price]<br>
-            ├── <strong>Dim_Date:</strong> [Date_Key, Date, Month, Quarter, Year, Fiscal_Period]<br>
-            └── <strong>Dim_Region:</strong> [Region_ID, Hub_Name, State, Zone]
-          </div>
-        </div>
-
-        <div class="schema-blueprint-box">
-          <h4>Relational Query Principles</h4>
-          <p>
-            My approach to database extraction prioritizes query readability, index awareness, and defensible logic:
-          </p>
-          <ul class="case-bullet-list" style="margin-top: 10px;">
-            <li><strong>CTEs over Subqueries:</strong> Break complex multistage calculations into named, readable logical blocks.</li>
-            <li><strong>Explicit JOINs:</strong> Always use explicit <code>INNER JOIN</code> or <code>LEFT JOIN</code> with clear ON clauses; avoid implicit Cartesian joins.</li>
-            <li><strong>Filter Before Aggregation:</strong> Use <code>WHERE</code> clauses early to trim record volume before evaluating <code>GROUP BY</code> and <code>HAVING</code>.</li>
-            <li><strong>Deterministic Ranking:</strong> Use <code>DENSE_RANK()</code> when tied values must preserve continuous tiers without leaving numeric gaps.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <hr class="rule-thin">
-
-    <!-- ========================================================================
-         SECTION 03: OPERATIONAL METHODOLOGY (TOOLKIT TABLE)
-         ======================================================================== -->
-    <section id="toolkit" class="container">
-      <div class="folio-header">
-        <span class="folio-num">03</span>
-        <h2 class="folio-title">Operational Toolkit &amp; Methodology</h2>
-        <span class="folio-tag">PRACTICAL USAGE MATRIX</span>
-      </div>
-
-      <p style="margin-bottom: 24px;">
-        I do not believe in arbitrary skill percentages (e.g. "Python: 85%"). Instead, here is a transparent matrix of what I actually use each tool for, and the bad habits I actively avoid.
-      </p>
-
-      <div class="toolkit-table-wrapper">
-        <table class="methodology-table">
-          <thead>
-            <tr>
-              <th style="width: 22%;">Technology</th>
-              <th style="width: 44%;">What I Use It For</th>
-              <th style="width: 34%;">What I Actively Avoid</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <span class="tool-badge-text">SQL (PostgreSQL, MySQL)</span>
-                <span class="tool-domain-text">Querying &amp; Extraction</span>
-              </td>
-              <td class="usage-text">
-                Multi-table joins, Common Table Expressions (CTEs), window functions (<code>ROW_NUMBER</code>, <code>DENSE_RANK</code>), and aggregated cohort calculations.
-              </td>
-              <td class="avoidance-text">
-                Nested unindexed subqueries, `SELECT *` in production, and implicit joins without explicit ON clauses.
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <span class="tool-badge-text">Power BI &amp; DAX</span>
-                <span class="tool-domain-text">Business Intelligence</span>
-              </td>
-              <td class="usage-text">
-                Star schema modeling, 1-to-many relationship mapping, custom DAX time-intelligence (<code>DATEADD</code>, <code>CALCULATE</code>, <code>DIVIDE</code>), and drill-down KPI cards.
-              </td>
-              <td class="avoidance-text">
-                Single wide flat tables, bi-directional cross-filtering without need, and excessive decorative visuals that obscure numbers.
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <span class="tool-badge-text">Advanced Excel</span>
-                <span class="tool-domain-text">Operations &amp; Reporting</span>
-              </td>
-              <td class="usage-text">
-                Dynamic <code>XLOOKUP</code>, nested <code>SUMIFS</code>, Pivot Tables with Slicers, conditional formatting, and strict input validation rules.
-              </td>
-              <td class="avoidance-text">
-                Hardcoding calculated numbers, fragile <code>VLOOKUP</code> with static column indices, and unprotected manual entry sheets.
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <span class="tool-badge-text">Python (Pandas, NumPy)</span>
-                <span class="tool-domain-text">Exploratory Analysis</span>
-              </td>
-              <td class="usage-text">
-                Data cleaning, handling missing value distributions, type conversions, categorical normalization, and correlation heatmaps in Seaborn.
-              </td>
-              <td class="avoidance-text">
-                Dropping rows with null values before understanding why they are missing, and un-reproducible scratch notebooks.
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <hr class="rule-thin">
-
-    <!-- ========================================================================
-         SECTION 04: WORK RECORD & CREDENTIALS
-         ======================================================================== -->
-    <section id="record" class="container">
-      <div class="folio-header">
-        <span class="folio-num">04</span>
-        <h2 class="folio-title">Applied Record &amp; Education</h2>
-        <span class="folio-tag">CHRONOLOGY</span>
-      </div>
-
-      <!-- Experience Row -->
-      <div class="record-entry">
-        <div class="record-dates">JUN 2024 — AUG 2024</div>
-        <div>
-          <div class="record-org">Apex Logistics Solutions</div>
-          <div class="record-role">DATA ANALYST INTERN • PUNE</div>
-        </div>
-        <div class="record-prose">
-          <ul>
-            <li>Extracted and reconciled daily delivery records from internal MySQL databases across 12 delivery hubs in Maharashtra.</li>
-            <li>Prepared weekly operational MIS reports in Excel tracking on-time delivery ratios, turnaround times, and delivery failure categories.</li>
-            <li>Resolved mismatched status logs between driver records and manifest entries, correcting ~300 logging discrepancies per week.</li>
-            <li>Assisted the logistics lead by executing ad-hoc SQL queries to evaluate driver route efficiency and fuel expenditure trends.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Education & Certifications -->
-      <div class="education-strip">
-        <div class="edu-item">
-          <h4>Bachelor of Engineering (B.E.) in Computer Engineering</h4>
-          <div class="edu-meta">Savitribai Phule Pune University (SPPU) | Expected June 2025</div>
-          <p style="font-size:0.9rem;">
-            Cumulative CGPA: 8.2 / 10.0. Core academic training in Database Management Systems (DBMS), Applied Statistics, Data Structures, and Software Engineering.
-          </p>
-        </div>
-
-        <div class="edu-item">
-          <h4>Verified Certifications</h4>
-          <div class="edu-meta">INDUSTRY CREDENTIALS</div>
-          <p style="font-size:0.9rem; margin-bottom: 8px;">
-            <strong>Google Data Analytics Professional Certificate (Coursera, 2024)</strong> — 8-course sequence covering SQL, Tableau, and data transformation.
-          </p>
-          <p style="font-size:0.9rem;">
-            <strong>SQL (Advanced) Skill Certificate (HackerRank, 2024)</strong> — Complex joins, window framing, subqueries, and aggregations.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <hr class="rule-thin">
-
-    <!-- ========================================================================
-         SECTION 05: CONTACT / CORRESPONDENCE
-         ======================================================================== -->
-    <section id="contact" class="container">
-      <div class="folio-header">
-        <span class="folio-num">05</span>
-        <h2 class="folio-title">Direct Correspondence</h2>
-        <span class="folio-tag">CHANNELS</span>
-      </div>
-
-      <div class="contact-grid">
-        <div>
-          <h3 class="contact-headline">Looking for someone who enjoys the details?</h3>
-          <p>
-            I am actively interviewing for Junior Data Analyst, MIS Analyst, Operations Analyst, and Business Intelligence Intern roles. If your team has an opening or wants to review my SQL queries, get in touch directly.
-          </p>
-
-          <table class="channel-table">
-            <tbody>
-              <tr>
-                <td class="channel-tag">EMAIL</td>
-                <td>
-                  <a href="mailto:rushikesh.patil.work@gmail.com" class="channel-link" id="copy-email-btn" title="Click to copy">
-                    rushikesh.patil.work@gmail.com [copy]
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td class="channel-tag">PHONE / WA</td>
-                <td>
-                  <a href="tel:+919876543210" class="channel-link">+91 98765 43210</a>
-                </td>
-              </tr>
-              <tr>
-                <td class="channel-tag">LINKEDIN</td>
-                <td>
-                  <a href="https://linkedin.com/in/rushikesh-patil-analytics" class="channel-link" target="_blank" rel="noopener">
-                    linkedin.com/in/rushikesh-patil-analytics ↗
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td class="channel-tag">GITHUB</td>
-                <td>
-                  <a href="https://github.com/shidoariki/Rushikesh-Portfolio" class="channel-link" target="_blank" rel="noopener">
-                    github.com/shidoariki ↗
-                  </a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div>
-          <form id="memo-form" class="dispatch-memo">
-            <div class="memo-field">
-              <label for="name-input">Sender Name &amp; Organization</label>
-              <input type="text" id="name-input" class="memo-input" placeholder="e.g. Priya Kulkarni (Operations Lead)" required>
-            </div>
-            <div class="memo-field">
-              <label for="email-input">Your Email</label>
-              <input type="email" id="email-input" class="memo-input" placeholder="priya@company.in" required>
-            </div>
-            <div class="memo-field">
-              <label for="msg-input">Inquiry Note</label>
-              <textarea id="msg-input" class="memo-input" placeholder="We have an opening for a Data Analyst in Pune/Remote..." required></textarea>
-            </div>
-            <button type="submit" class="memo-btn">Send Inquiry Memo →</button>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ========================================================================
-       COLOPHON
-       ======================================================================== -->
-  <footer class="colophon-bottom">
-    <div class="container colophon-row">
-      <div>
-        RUSHIKESH PATIL © 2025 • PUNE, MAHARASHTRA • SET IN <em>NEWSREADER</em> &amp; <em>INSTRUMENT SANS</em>
-      </div>
-      <div>
-        <a href="#prologue" style="color:var(--text-accent);">BACK TO TOP ↑</a>
-      </div>
-    </div>
-  </footer>
-
-  <div id="toast" class="minimal-toast"></div>
-
-  <script src="app.js"></script>
+      function showToast(text) {
+        const t = document.getElementById('toast-box');
+        if (!t) return;
+        t.textContent = text;
+        t.style.display = 'block';
+        setTimeout(() => { t.style.display = 'none'; }, 2600);
+      }
+    });
+  </script>
 </body>
 </html>
